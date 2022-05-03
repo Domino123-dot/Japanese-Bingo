@@ -86,11 +86,6 @@ You can configure `now` to use aliases with custom domains using the `now domain
 
 ----
 
-## Further reading
-
-### Database hosting
-
-If you need an instance of MongoDB in the cloud https://mlab.com/ have free and inexpensive options.
 
 ### Secrets for Environment Variables
 
@@ -99,15 +94,3 @@ Once you are comfortable using `.env` files for configuration and running and de
 ### GitHub integration
 
 You can integrate `now` with a GitHub account to trigger automated deployments anytime you push to GitHub. This works great if you have secrets set up!
-
-### Now 2.0
-
-When you deploy this project you will see this message as of November 2018:
-
-    WARN! You are using an old version of the Now Platform. More: https://zeit.co/docs/v1-upgrade
-
-Now 2.0 was released in November 2018 and works differently from Now 1.0. This project has not been updated for Now 2.0. You may ignore this message for now.
-
-### Alternate hosting options
-
-You can host your Next.js site with any hosting provider. Although it works great on Now, it also works great with other providers like Heroku, Amazon Web Service, Google Cloud Platform, Microsoft Azure, DigitalOcean and others.
