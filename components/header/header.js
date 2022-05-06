@@ -9,10 +9,9 @@ const Header = () => {
       </div>
       <div className={styles.desc}>
         <h2>
-          This app is a companion to Tofugu’s Learn Hiragana Guide and Learn
-          Katakana Guide. Use it to practice hiragana and katakana. If you
-          haven’t learned kana yet, check out the hiragana guide or the katakana
-          guide, then come back here.
+         Testowa strona z quizem lorem ipsum
+         Qui veniam non Lorem duis consequat ad ullamco.Sit pariatur qui eiusmod exercitation. Quis minim et enim consectetur laborum ut sit deserunt minim laboris ea non. Nostrud ut Lorem nostrud cillum proident cillum cillum cillum. Et duis sint enim dolore nulla proident laborum sint in labore deserunt minim deserunt.
+abore excepteur veniam elit culpa sunt duis ut voluptate et pariatur irure. Consequat Lorem culpa ve
         </h2>
       </div>
     </div>
