@@ -1,18 +1,18 @@
-@import '/public/color.scss';
-.header{
-    width:100%;
-    font-family: 'DejaVu Sans Mono';
-    font-weight: 900;
+@import "/public/color.scss";
+.header {
+  width: 100%;
+  font-family: "DejaVu Sans Mono";
+  font-weight: 900;
 }
-.head{
-    color:$pink;
-    text-align: center;
-    font-size:1rem;
+.head {
+  color: $pink;
+  text-align: center;
+  font-size: 1rem;
 }
-.desc{
-margin-left:35%;
-margin-right:35%;
-text-align: center;
-text-overflow: inherit;
-font-size: 0.6rem;
+.desc {
+  margin-left: 35%;
+  margin-right: 35%;
+  text-align: center;
+  text-overflow: inherit;
+  font-size: 0.6rem;
 }
