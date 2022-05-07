@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "../header/header.module.scss";
 
-const Header = () => {
+const Header = ({children,title}) => {
   return (
     <div className={styles.header}>
       <div className={styles.head}>
-        <h1>Testowa strona z Quizem</h1>
+       {title}
       </div>
       <div className={styles.desc}>
         <h2>
-         Testowa strona z quizem lorem ipsum
-         Qui veniam non Lorem duis consequat ad ullamco.Sit pariatur qui eiusmod exercitation. Quis minim et enim consectetur laborum ut sit deserunt minim laboris ea non. Nostrud ut Lorem nostrud cillum proident cillum cillum cillum. Et duis sint enim dolore nulla proident laborum sint in labore deserunt minim deserunt.
-abore excepteur veniam elit culpa sunt duis ut voluptate et pariatur irure. Consequat Lorem culpa ve
+          {children}
+          
+
         </h2>
       </div>
     </div>
@@ -19,3 +19,14 @@ abore excepteur veniam elit culpa sunt duis ut voluptate et pariatur irure. Cons
 };
 
 export default Header;
+
+
+/* 
+         Free to use japanese kana quiz, you can practice your Hiragana and Katakana 
+         knowlege in "Practice kana" section of this website, on the other hand I present to you "Practice writing"
+         where you can practice your kana knowlege by writing whole words, enjoy! */
+
+         
+        /*
+        <h1>Japanese kana quiz!</h1>
+       */

@@ -2,18 +2,22 @@ import React from "react";
 import Header from "../components/header/header";
 import styles from "../style/index.module.scss";
 import Line from "../components/line";
+import Footer from "../components/footer/footer.js";
+import Button from "../components/button/button";
 export default function Home() {
   return (
     <>
       <Header />
 
       <div className={styles.buttons}>
-    
-      <button className={styles.button1}>Practice writing systems</button>
-      <button className={styles.button2}>Practice kana</button>
+  <Button href="/kana">Practice kana</Button>
+ <Button href="#writing">Practice writing using kana</Button>
 
+ 
       </div>
+      
       <Line />
+      <Footer />
     </>
   );
 }
