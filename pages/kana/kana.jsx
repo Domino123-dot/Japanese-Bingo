@@ -15,9 +15,9 @@ const kana = () => {
       </Header>
 
       <div className={styles.buttons}>
-        <Button className={styles.button} href="/kana">Hiragana</Button>
-        <Button className={styles.button} href="#writing">Katakana</Button>
-        <Button className={styles.button} href="#writing">Hiragana and Katakana</Button>
+        <Button style={styles.button} href="/kana">Hiragana</Button>
+        <Button style={styles.button} href="#writing">Katakana</Button>
+        <Button style={styles.button} href="#writing">Hiragana and Katakana</Button>
       </div>
 
       <div className={styles.kana}>

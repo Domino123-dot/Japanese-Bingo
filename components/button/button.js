@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../button/button.module.scss"
+import Router from "next/router";
 
 
-const Button = ({children,href}) =>{
+const Button = ({children,href,style}) =>{
 return(
-<a href={href}><button className={styles.button}> {children}</button></a>
+<button type="button" onClick={() => Router.push(href)} className={style}> {children}</button>
 
 )
 }
