@@ -10,8 +10,8 @@ export default function Home() {
       <Header />
 
       <div className={styles.buttons}>
-      <Button>Practice kana</Button>
- <Button>Practice writing using kana</Button>
+  <Button href="/kana">Practice kana</Button>
+ <Button href="#writing">Practice writing using kana</Button>
 
  
       </div>
