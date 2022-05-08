@@ -1,13 +1,12 @@
 import React from "react";
 import Header from "../components/header/header";
 import styles from "../style/index.module.scss";
-import Line from "../components/line";
-import Footer from "../components/footer/footer.js";
 import Button from "../components/button/button";
-
+import Layout from "../components/layout/layout";
 export default function Home() {
   return (
     <>
+    <Layout>
      <Header title="Japanese kana quiz!"> 
          Free to use japanese kana quiz, you can practice your Hiragana and Katakana 
          knowlege in "Practice kana" section of this website, on the other hand I present to you "Practice writing"
@@ -18,9 +17,7 @@ export default function Home() {
 
  
       </div>
-      
-      <Line />
-      <Footer />
+      </Layout>
     </>
   );
 }
