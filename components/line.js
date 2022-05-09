@@ -1,17 +1,17 @@
 import react from "react";
 
-
-
-const Line = () =>{
-    return(
-<hr  style={{
-   backgroundColor:"#7d7d7d",
-   borderColor:"#7d7d7d",
-    margin:"20%  10%  0%  10%",
-   height:"1px"
-   
-}}/>
-)
-}
+const Line = ({ color, margin }) => {
+  return (
+    <hr
+      style={{
+        backgroundColor: color,
+        borderStyle: "none",
+        margin: margin,
+        borderRadius: "15px",
+        height: "2px",
+      }}
+    />
+  );
+};
 
 export default Line;
