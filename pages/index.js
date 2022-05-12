@@ -3,6 +3,7 @@ import Header from "../components/header/header";
 import styles from "../style/index.module.scss";
 import Button from "../components/button/button";
 import Layout from "../components/layout/layout";
+
 export default function Home() {
   return (
     <>

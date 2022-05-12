@@ -8,7 +8,7 @@ const hiragana = () => {
   return (
     <>
       <Layout>
-        <Header title="Practice kana">
+        <Header lang="false" title="Practice kana">
           In this section you can practice your kana knowlege, you can choose
           between japanese hiragana, katakana their combinations or you can
           select all kana where you'll be able to quiz yourself from literally

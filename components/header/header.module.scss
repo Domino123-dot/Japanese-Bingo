@@ -1,5 +1,6 @@
 @import "/public/color.scss";
 @import url(https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap);
+
 .header {
   width: 100%;
   font-family: "Roboto Condensed";
@@ -15,13 +16,5 @@
   margin-right: 35%;
   text-align: center;
   text-overflow: inherit;
-  font-size: .8rem;
-}
-
-.select{
-
-padding-left: 1rem;
-padding-top: 1rem;
-
-
+  font-size: 0.8rem;
 }
