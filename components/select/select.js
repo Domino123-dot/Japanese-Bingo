@@ -1,21 +1,27 @@
-import React from "react";
+import { React, useState } from "react";
 import styles from "../select/select.module.scss";
+import clsx from "clsx";
+function LanguageSelect() {
+  const [isVisible, setVisibility] = useState(false);
 
-
-
-const Select = () =>{
-return(
-<select className={styles.select} name="Choose language">
-         
-         <option value="PL">Polish</option>
-         <option selected="selected" value="EN">
-           English
-         </option>
-       </select>
-   
-
-)
-
+  return (
+    <>
+      <button
+        className={styles.button}
+        onClick={() => setVisibility(!isVisible)}
+      >Language</button>
+      <div
+        className={clsx(styles.HiddenList , {[styles.ActiveList] : isVisible}
+        )}
+      >
+        <ul>
+          <li>Polish</li>
+          <li>English</li>
+          <li>Dutch</li>
+        </ul>
+      </div>
+    </>
+  );
 }
 
-export default Select;
+export default LanguageSelect;
