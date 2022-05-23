@@ -3,9 +3,11 @@ import Header from "../../components/header/header";
 import Button from "../../components/button/button";
 import styles from "../kana/kana.module.scss";
 import Layout from "../../components/layout/layout";
+import Backbutton from "../../components/backButton/Backbutton";
 const kana = () => {
   return (
     <>
+    <Backbutton />
       <Layout>
         <Header title="Practice kana">
           In this section you can practice your kana knowlege, you can choose

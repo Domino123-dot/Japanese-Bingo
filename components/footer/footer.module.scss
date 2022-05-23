@@ -3,5 +3,18 @@
 font-size:20px;
 margin-top: 5px;
 margin-left:10px;
+color:black;
+}
+
+.a{
+
+text-decoration: none;
+color:black;
+transition: 1.5s;
+&:hover{
+
+color:white;
+transition: 1.5s;
+}
 
 }

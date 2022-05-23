@@ -3,10 +3,11 @@ import Header from "../../components/header/header";
 import Button from "../../components/button/button";
 import styles from "../../pages/Katakana/katakana.module.scss";
 import Layout from "../../components/layout/layout";
-
+import Backbutton from "../../components/backButton/Backbutton";
 const katakana = () => {
   return (
     <>
+    <Backbutton />
       <Layout>
         <Header title="Practice kana">
           In this section you can practice your kana knowlege, you can choose

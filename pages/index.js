@@ -18,7 +18,7 @@ export default function Home() {
           <Button style={styles.button} href="/kana">
             Practice kana
           </Button>
-          <Button style={styles.button} href="#writing">
+          <Button style={styles.button} href="/Writing">
             Practice writing using kana
           </Button>
         </div>
