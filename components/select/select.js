@@ -17,7 +17,6 @@ function LanguageSelect() {
         <ul>
           <li>Polish</li>
           <li>English</li>
-          <li>Dutch</li>
         </ul>
       </div>
 

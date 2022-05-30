@@ -60,3 +60,41 @@
     }
   }
 }
+
+@media all and (max-width: 1024px){
+
+  .HiddenList {
+    
+    ul {
+    position: relative;
+   margin-top: -95%;
+      li {
+        padding: .2rem 1rem;
+        cursor: pointer;
+  
+      }
+    }
+  }
+  .button{
+    margin: 0 0 10% 0;
+  }
+}
+
+@media all and (max-width: 480px){
+
+  .HiddenList {
+    
+    ul {
+    position: relative;
+   margin-top: -75%;
+      li {
+        padding: .2rem 1rem;
+        cursor: pointer;
+  
+      }
+    }
+  }
+  .button{
+    margin: 0 0 23% 0;
+  }
+}

@@ -47,7 +47,6 @@
 .kanas {
   margin-top: 10px;
   text-align: center;
-
   width: 32%;
   display: inline-block;
   vertical-align: top;
@@ -72,3 +71,27 @@
     color: #d6d6d6;
   }
 }
+
+
+@media all and (max-width: 1024px){
+
+.menu{
+width:100%;
+&:hover{
+
+transform: scale(1);
+}
+}
+.menuClicked{
+
+width:100%;
+
+}
+.kanas{
+
+  display: block;
+  width: 100%;
+  }
+
+}
+

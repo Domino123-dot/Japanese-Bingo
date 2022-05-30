@@ -16,4 +16,12 @@
   text-align: center;
   text-overflow: inherit;
   font-size: 0.8rem;
+  text-align: justify;
+}
+
+@media all and (max-width: 991px){
+
+  .desc{margin: 0 0 0 0;
+  }
+
 }
