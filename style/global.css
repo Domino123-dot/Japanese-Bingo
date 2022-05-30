@@ -1,3 +1,11 @@
 body {
   background-color: #3d3d3d;
+  font-family: "Viga";
+}
+
+@font-face {
+  font-family: "Viga";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/public/fonts/Viga/Viga-Regular.ttf);
 }

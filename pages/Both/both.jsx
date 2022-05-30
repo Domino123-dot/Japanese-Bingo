@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/header/header";
 import Button from "../../components/button/button";
-import styles from "../../pages/Katakana/katakana.module.scss";
+import styles from "../../pages/Both/both.module.scss";
 import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
 const both = () => {
