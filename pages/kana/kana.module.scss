@@ -26,27 +26,20 @@
   }
 }
 
-
-@media all and (max-width: 1024px){
-
-  .menu{
-  width:100%;
-  &:hover{
-  
-  transform: scale(1);
-  }
-  }
-  .menuClicked{
-  
-  width:100%;
-  
-  }
-  .kanas{
-  
-    display: block;
+@media all and (max-width: 1024px) {
+ 
+  .menuClicked {
     width: 100%;
-    }
-  
   }
-  
-  
+  .buttons {
+    width: 100%;
+  }
+  .button {
+    width: 100%;
+    &:hover{
+
+      transform: scale(1);
+
+    }
+  }
+}

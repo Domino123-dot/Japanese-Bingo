@@ -85,16 +85,19 @@
   .HiddenList {
     
     ul {
-    position: relative;
-   margin-top: -75%;
-      li {
-        padding: .2rem 1rem;
-        cursor: pointer;
-  
-      }
+    margin-top: -65%;
+    
     }
   }
   .button{
     margin: 0 0 23% 0;
+  }
+}
+
+@media all and (max-width: 768px){
+
+ 
+  .button{
+    margin: 0 0 13% 0;
   }
 }

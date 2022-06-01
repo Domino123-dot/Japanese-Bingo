@@ -3,7 +3,9 @@
 font-size:20px;
 margin-top: 5px;
 margin-left:10px;
+display: flex;
 color:black;
+
 }
 
 .a{
@@ -17,4 +19,9 @@ color:white;
 transition: 1.5s;
 }
 
+}
+
+.icons{
+    
+    margin-right: 3rem;
 }

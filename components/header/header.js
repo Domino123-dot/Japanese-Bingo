@@ -7,7 +7,7 @@ const Header = ({ children, title }) => {
     <div className={styles.header}>
       <div className={styles.head}>
         {title}
-        <Line color="#241f1f" margin="1% 40% 0 40%" />
+        <Line color="#241f1f" margin="1% 30% 0 30%" />
       </div>
       <div className={styles.desc}>
         <h2>{children}</h2>
