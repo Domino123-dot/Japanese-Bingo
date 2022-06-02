@@ -1,10 +1,8 @@
 .footer{
-
 font-size:20px;
-margin-top: 5px;
-margin-left:10px;
-display: flex;
+display:flex;
 color:black;
+
 
 }
 
@@ -24,4 +22,21 @@ transition: 1.5s;
 .icons{
     
     margin-right: 3rem;
+
 }
+
+.text{
+
+    margin-right: 3rem;
+}
+
+
+@media all and (max-width:1024px){
+
+   .icons{
+
+    display: none;
+   }
+    
+}
+ 

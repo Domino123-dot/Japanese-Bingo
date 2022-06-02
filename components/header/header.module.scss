@@ -8,7 +8,6 @@
   color: $pink;
   text-align: center;
   font-size: 3rem;
-    
 }
 .desc {
   margin-left: 35%;
@@ -19,9 +18,8 @@
   text-align: justify;
 }
 
-@media all and (max-width: 991px){
-
-  .desc{margin: 0 0 0 0;
+@media all and (max-width: 991px) {
+  .desc {
+    margin: 0 0 0 0;
   }
-
 }
