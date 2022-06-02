@@ -1,42 +1,44 @@
-.footer{
-font-size:20px;
-display:flex;
-color:black;
-
-
+.footer {
+  font-size: 20px;
+  display: flex;
+  color: black;
 }
 
-.a{
-
-text-decoration: none;
-color:black;
-transition: 1.5s;
-&:hover{
-
-color:white;
-transition: 1.5s;
+.text {
+  margin-right: 20%;
+  margin-left: 5%;
 }
 
+.a {
+  text-decoration: none;
+  color: black;
+  transition: 1.5s;
+  &:hover {
+    color: white;
+    transition: 1.5s;
+  }
 }
 
-.icons{
-    
-    margin-right: 3rem;
-
+.icons {
+  margin-right: 3rem;
 }
 
-.text{
-
-    margin-right: 3rem;
+.hiddenFooter {
+  font-size: 35px;
+  display: none;
+  color: black;
 }
 
-
-@media all and (max-width:1024px){
-
-   .icons{
-
+@media all and (max-width: 1024px) {
+  .footer {
     display: none;
-   }
-    
+  }
+
+  .hiddenFooter {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .icons {
+    margin-right: 1rem;
+  }
 }
- 

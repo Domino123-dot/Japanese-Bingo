@@ -6,7 +6,7 @@ import LanguageSelect from "../select/select";
 export default function Layout({ children }) {
   return (
     <>
-    <LanguageSelect text="Language" />
+      <LanguageSelect text="Language" />
       <main>{children}</main>
       <Line />
       <Footer />

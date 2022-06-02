@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'Viga';
+  font-family: "Viga";
   font-style: normal;
   font-weight: 400;
   src: url(/fonts/Viga/Viga-Regular.ttf);
 }
 
 @font-face {
-  font-family: 'Poiret One';
+  font-family: "Poiret One";
   font-style: normal;
   font-weight: 400;
   src: url(/fonts/Poiret_One/PoiretOne-Regular.ttf);
@@ -14,12 +14,9 @@
 
 body {
   background-color: #3d3d3d;
-  font-family: 'Poiret One';
+  font-family: "Poiret One";
   /*font-family: 'Poiret One';*/
 }
-*{
-
+* {
   box-sizing: border-box;
-
 }
-

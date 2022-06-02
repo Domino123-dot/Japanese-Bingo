@@ -8,14 +8,12 @@ const Footer = () => {
   return (
     <>
       <Line color="#241f1f" margin="20% 5% 0 5%" />
-      
       <div className={styles.footer}>
-      <div className={styles.text}>
-          My first project! If you have any questions contact me via e-mail.
-        </div>
+        <div className={styles.text}>Website made by Jakub Kot.</div>
         <div className={styles.icons}>
           <Icon link="mailto:pl.kubakot@Gmail.com" icon={faEnvelope}>
-            pl.kubakot@Gmail.com
+            {" "}
+            pl.kubakot@gmail.com
           </Icon>
         </div>
 
@@ -32,7 +30,22 @@ const Footer = () => {
             LinkedIn
           </Icon>
         </div>
-        
+      </div>
+
+      <div className={styles.hiddenFooter}>
+        <div className={styles.icons}>
+          <Icon link="mailto:pl.kubakot@Gmail.com" icon={faEnvelope} />
+        </div>
+
+        <div className={styles.icons}>
+          <Icon link="https://github.com/Domino123-dot" icon={faGithub} />
+        </div>
+        <div className={styles.icons}>
+          <Icon
+            link="https://www.linkedin.com/in/jakub-kot-337154112/"
+            icon={faLinkedin}
+          />
+        </div>
       </div>
     </>
   );

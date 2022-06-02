@@ -9,17 +9,17 @@ function LanguageSelect() {
       <button
         className={styles.button}
         onClick={() => setVisibility(!isVisible)}
-      >Language</button>
+      >
+        Language
+      </button>
       <div
-        className={clsx(styles.HiddenList , {[styles.ActiveList] : isVisible}
-        )}
+        className={clsx(styles.HiddenList, { [styles.ActiveList]: isVisible })}
       >
         <ul>
           <li>Polish</li>
           <li>English</li>
         </ul>
       </div>
-
     </>
   );
 }

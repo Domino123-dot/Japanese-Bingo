@@ -24,9 +24,9 @@
   font-family: "Roboto Condensed";
   font-weight: 700;
   position: absolute;
-  visibility: hidden; 
+  visibility: hidden;
   opacity: 0;
-  transition: visibility .2s linear, opacity .2s linear;
+  transition: visibility 0.2s linear, opacity 0.2s linear;
   ul {
     list-style: none;
     padding: 0;
@@ -35,7 +35,6 @@
     li {
       padding: 0.5rem 1rem;
       cursor: pointer;
-
     }
   }
 }
@@ -61,43 +60,35 @@
   }
 }
 
-@media all and (max-width: 1024px){
-
+@media all and (max-width: 1024px) {
   .HiddenList {
-    
     ul {
-    position: relative;
-   margin-top: -95%;
+      position: relative;
+      margin-top: -95%;
       li {
-        padding: .2rem 1rem;
+        padding: 0.2rem 1rem;
         cursor: pointer;
-  
       }
     }
   }
-  .button{
+  .button {
     margin: 0 0 10% 0;
   }
 }
 
-@media all and (max-width: 480px){
-
+@media all and (max-width: 480px) {
   .HiddenList {
-    
     ul {
-    margin-top: -65%;
-    
+      margin-top: -65%;
     }
   }
-  .button{
+  .button {
     margin: 0 0 23% 0;
   }
 }
 
-@media all and (max-width: 768px){
-
- 
-  .button{
+@media all and (max-width: 768px) {
+  .button {
     margin: 0 0 13% 0;
   }
 }

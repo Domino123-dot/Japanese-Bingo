@@ -9,8 +9,6 @@ const Line = ({ color, margin }) => {
         margin: margin,
         borderRadius: "15px",
         height: "2px",
-        
-        
       }}
     />
   );

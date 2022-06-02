@@ -7,6 +7,6 @@ const Button = ({ children, href, style }) => {
       {" "}
       {children}
     </button>
-  );    
+  );
 };
 export default Button;
