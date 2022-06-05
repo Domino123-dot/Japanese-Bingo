@@ -1,0 +1,27 @@
+.ScrollUp {
+display: flex;
+  position: sticky;
+  float: right;
+  font-size: 70px;
+  bottom: 50px;
+  right: 50px;
+  transition: 1.5s;
+  color: rgba(0, 0, 0, 0.52);
+  opacity: 1;
+  &:hover {
+    transition: 1.5s;
+    color: rgba(255, 255, 255, 0.52);
+  }
+}
+
+.DisabledScrollUp {
+visibility: hidden;
+  position: sticky;
+  float: right;
+  font-size: 70px;
+  bottom: 50px;
+  right: 50px;
+  opacity: 0;
+  transition: visibility 1.5s linear, opacity .5s linear;
+  color: rgba(0, 0, 0, 0.52);
+}

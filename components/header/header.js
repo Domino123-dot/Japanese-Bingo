@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../header/header.module.scss";
 import Line from "../line";
-
 const Header = ({ children, title }) => {
   return (
     <div className={styles.header}>
@@ -12,7 +11,10 @@ const Header = ({ children, title }) => {
       <div className={styles.desc}>
         <h2>{children}</h2>
       </div>
+ 
     </div>
+
+  
   );
 };
 
