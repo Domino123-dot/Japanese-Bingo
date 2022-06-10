@@ -1,7 +1,49 @@
-.footer{
+.footer {
+  font-size: 20px;
+  display: flex;
+  color: black;
+}
 
-font-size:20px;
-margin-top: 5px;
-margin-left:10px;
+.text {
+  margin-right: 5%;
+  margin-left: 7%;
+}
 
+.a {
+  text-decoration: none;
+  color: black;
+  transition: 1.5s;
+  &:hover {
+    color: white;
+    transition: 1.5s;
+  }
+}
+
+.icons {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.hiddenFooter {
+  font-size: 30px;
+  display: none;
+  color: black;
+}
+
+@media all and (max-width: 1024px) {
+  .footer {
+    display: none;
+  }
+  .text {
+    font-size: 25px;
+    
+  }
+
+  .hiddenFooter {
+    display: flex;
+  }
+  .icons {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
 }

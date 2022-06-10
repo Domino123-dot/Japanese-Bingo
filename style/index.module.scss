@@ -1,12 +1,10 @@
-@import "/public/color.scss";
-@import url(https://fonts.googleapis.com/css2?family=Viga&display=swap);
+
 .buttons {
   margin-left: 35%;
   margin-right: 35%;
 }
-
-.button {
-  font-family: "Viga";
+.buttonDisabled{
+  animation: FadeInDelayed 3s;
   font-size: large;
   border: 4px solid #2b2a2a;
   border-radius: 15px;
@@ -22,5 +20,110 @@
     transform: scale(1.1);
     border: 4px solid #d6d6d6;
     color: #d6d6d6;
+  }
+  &:disabled{
+
+    transform: scale(1);
+    border: 3px solid #a300003f;
+    color:#a300003f;
+
+  }
+
+  
+}
+
+.button {
+  animation: FadeInDelayed 3s;
+  font-size: large;
+  border: 4px solid #2b2a2a;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  transition: 1.5s;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100px;
+  &:hover {
+    transition: 1.5s;
+    transform: scale(1.1);
+    border: 4px solid #d6d6d6;
+    color: #d6d6d6;
+  }
+}
+.header {
+  width: 100%;
+  font-weight: 900;
+  animation: FadeIn 3s;
+}
+
+
+.head {
+  color: rgb(81, 0, 81);
+  text-align: center;
+  font-size: 3rem;
+
+}
+.line{
+
+animation: lineAppear 4s;
+
+}
+.desc {
+  margin-left: 35%;
+  margin-right: 35%;
+  text-align: center;
+  text-overflow: inherit;
+  font-size: 0.8rem;
+  text-align: justify;
+  animation: FadeInDelayed 2s;
+}
+
+@media all and (max-width: 991px) {
+  .desc {
+    margin: 0 0 0 0;
+  }
+}
+
+
+@media all and (max-width: 1024px) {
+  .buttons {
+    width: 100%;
+    margin: 0 0 0 0;
+  }
+  .button {
+    width: 100%;
+  }
+
+
+}
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes FadeInDelayed {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes lineAppear {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
