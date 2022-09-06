@@ -7,7 +7,7 @@ import Icon from "../icon/icon";
 const Footer = () => {
   return (
     <>
-      <Line color="#241f1f" margin="20% 5% 0 5%" />
+      <Line color="#241f1f" margin="30% 5% 0 5%" />
       <div className={styles.footer}>
         <div className={styles.text}>Website made by Jakub Kot.</div>
         <div className={styles.icons}>

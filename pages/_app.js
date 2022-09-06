@@ -1,5 +1,13 @@
-import styles from "../style/global.css";
-const MyApp = ({ Component, pageProps }) => {
-    return <Component {...pageProps} />
-  }
-  export default MyApp
+import { LanguageContextWrapper } from "../components/context.js";
+import  "../style/global.css";
+
+function MyApp({ Component, pageProps }) {
+
+  return (
+    <LanguageContextWrapper>
+      <Component {...pageProps} />
+    </LanguageContextWrapper>
+  );
+}
+
+export default MyApp
