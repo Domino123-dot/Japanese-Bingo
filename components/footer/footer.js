@@ -33,7 +33,6 @@ const Footer = () => {
       </div>
 
       <div className={styles.hiddenFooter}>
-      
         <div className={styles.icons}>
           <Icon link="mailto:pl.kubakot@Gmail.com" icon={faEnvelope} />
         </div>

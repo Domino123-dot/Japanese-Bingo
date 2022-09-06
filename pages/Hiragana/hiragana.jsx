@@ -7,9 +7,8 @@ import Backbutton from "../../components/backButton/Backbutton";
 const hiragana = () => {
   return (
     <>
-    <Backbutton />
+      <Backbutton />
       <Layout>
-        
         <Header lang="false" title="Practice kana">
           In this section you can practice your kana knowlege, you can choose
           between japanese hiragana, katakana their combinations or you can
@@ -119,7 +118,7 @@ const hiragana = () => {
             gya|ぎゃ
           </Button>
           <Button style={styles.options} href="/kana">
-            dya|ぢゃ  
+            dya|ぢゃ
           </Button>
           <Button style={styles.options} href="/kana">
             pya|ぴゃ
@@ -129,7 +128,5 @@ const hiragana = () => {
     </>
   );
 };
-
- 
 
 export default hiragana;

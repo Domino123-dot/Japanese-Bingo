@@ -1,10 +1,9 @@
 import { React, useState } from "react";
 import styles from "../select/select.module.scss";
 import clsx from "clsx";
-import {useLanguageContext} from "../context.js";
+import { useLanguageContext } from "../context.js";
 function LanguageSelect() {
-
-  const {language , setLanguage} = useLanguageContext();
+  const { language, setLanguage } = useLanguageContext();
   const [isVisible, setVisibility] = useState(false);
 
   return (
@@ -19,9 +18,21 @@ function LanguageSelect() {
         className={clsx(styles.HiddenList, { [styles.ActiveList]: isVisible })}
       >
         <div className={styles.button}>
-     <button onClick={(event)=> setLanguage(event?.target?.value)} value="polish"  className={styles.listButton}>polish</button>
-     <button onClick={(event)=> setLanguage(event?.target?.value)} value="english" className={styles.listButton}>english</button>
-     </div>
+          <button
+            onClick={(event) => setLanguage(event?.target?.value)}
+            value="polish"
+            className={styles.listButton}
+          >
+            polish
+          </button>
+          <button
+            onClick={(event) => setLanguage(event?.target?.value)}
+            value="english"
+            className={styles.listButton}
+          >
+            english
+          </button>
+        </div>
       </div>
     </>
   );

@@ -27,7 +27,6 @@
 }
 
 @media all and (max-width: 1024px) {
- 
   .menuClicked {
     width: 100%;
   }
@@ -36,10 +35,8 @@
   }
   .button {
     width: 100%;
-    &:hover{
-
+    &:hover {
       transform: scale(1);
-
     }
   }
 }

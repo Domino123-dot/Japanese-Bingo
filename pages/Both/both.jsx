@@ -7,7 +7,7 @@ import Backbutton from "../../components/backButton/Backbutton";
 const both = () => {
   return (
     <>
-    <Backbutton />
+      <Backbutton />
       <Layout>
         <Header title="Practice kana">
           In this section you can practice your kana knowlege, you can choose
@@ -127,7 +127,6 @@ const both = () => {
 
         <Header title="Katakana"></Header>
 
-       
         <div className={styles.kanas}>
           <h1>Main kana</h1>
           <Button style={styles.options}>All</Button>

@@ -1,8 +1,7 @@
 import { LanguageContextWrapper } from "../components/context.js";
-import  "../style/global.css";
+import "../style/global.css";
 
 function MyApp({ Component, pageProps }) {
-
   return (
     <LanguageContextWrapper>
       <Component {...pageProps} />
@@ -10,4 +9,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp
+export default MyApp;
