@@ -7,7 +7,7 @@ const LanguageContext = React.createContext();
 // przez uzycie Providera wartosci z kontekstu beda dostepne we wszystkich komponentach znajdujacych sie "wewnatrz" tego wrappera.
 export const LanguageContextWrapper = ({ children }) => {
   // hook useState, raczej powinienes wiedziec jak sie go używa
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState("english");
 
   // wartosci ktore beda przekazywane w kontekscie.
   // jedna jest "language" a druga funkcja "setLanguage" do zmiany jezyka
@@ -16,6 +16,7 @@ export const LanguageContextWrapper = ({ children }) => {
   const sharedState = {
     language,
     setLanguage,
+    
   };
 
   return (

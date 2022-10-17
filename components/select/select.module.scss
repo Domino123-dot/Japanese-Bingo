@@ -4,10 +4,9 @@
   font-size: 1.4rem;
   width: 120px;
   padding: 5px 5px 5px 6px;
-  color: black;
-  border: 3px solid #2b2a2a;
+  border: 3px solid gray;
   border-radius: 12px;
-  background: #3d3d3d;
+  background:inherit;
   font-family: "Roboto Condensed";
   font-weight: 500;
   outline: none;
@@ -16,14 +15,13 @@
 
   &:hover {
     transition: 1.5s;
-    border: solid #d6d6d6;
-    color: #d6d6d6;
+    color: black;
+    border: 3px solid black;
   }
 }
 
 .HiddenList {
-  font-family: "Roboto Condensed";
-  font-weight: 700;
+  font-weight: 400;
   position: absolute;
   visibility: hidden;
   opacity: 0;
@@ -31,8 +29,8 @@
 }
 
 .ActiveList {
+  
   cursor: pointer;
-  position: absolute;
   list-style-type: none;
   visibility: visible;
   opacity: 1;
@@ -40,19 +38,15 @@
 
 .listButton {
   border: none;
-
   background: inherit;
-
   margin-top: 0.5rem;
-  color: black;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: 1.2rem;
   border-radius: 12px;
   transition: 1.5s;
 
   &:hover {
     transition: 1.5s;
-    color: #d6d6d6;
+    color: black;
   }
 }
 

@@ -5,7 +5,7 @@ import { useLanguageContext } from "../context.js";
 function LanguageSelect() {
   const { language, setLanguage } = useLanguageContext();
   const [isVisible, setVisibility] = useState(false);
-
+  
   return (
     <>
       <button
