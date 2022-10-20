@@ -7,11 +7,10 @@ import Backbutton from "../../components/backButton/Backbutton";
 import axios from "axios";
 const both = () => {
   const [questions, setQuestions] = useState([]);
-  const [category,setCategory] = useState("");
+  const [category, setCategory] = useState("");
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
-  
     });
   };
 
@@ -30,17 +29,16 @@ const both = () => {
           everything (except for kanji).
         </Header>
 
-        <button onClick={() => setCategory("NaNo")}>NaNo</button>
-        {
-        
-        questions.map((question, index) => {
-          <div>
-            <p> {question.category} </p>
-          </div>;
-        })
-        
-        
-        }
+    
+        {questions.map((question) => (
+          <div className={styles.menu}>
+            <p>
+              {" "}
+              {question.question}
+              <input className={styles.input} spellCheck="false" type="text" input="answer"></input>{" "}
+            </p>
+          </div>
+        ))}
       </Layout>
     </>
   );
