@@ -7,8 +7,8 @@ export default function Layout({ children }) {
   return (
     <>
       <LanguageSelect text="Language" />
+
       <main>{children}</main>
-     
 
       <Footer />
       <ScrollOnTop />

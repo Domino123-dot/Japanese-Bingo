@@ -7,14 +7,13 @@
   color: white;
   font-weight: bold;
   width: 15%;
-  float: left;
   margin-right: 1%;
   margin-bottom: 2%;
   margin-left: 3%;
+  float: left;
 }
 
 .input {
-  margin-top: 10%;
   outline: none;
   width: 80%;
   height: 50px;
@@ -33,14 +32,11 @@
 
 @media all and (max-width: 1024px) {
   .menu {
-    width: 100%;
-    float: none;
-    margin:0,0,0,0;
+    width: 25%;
   }
 
   .input {
     margin-bottom: 10%;
     height: 100px;
-    margin-top: 0px;
   }
 }

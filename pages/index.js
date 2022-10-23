@@ -16,15 +16,15 @@ export default function Home() {
         <Line color="#241f1f" margin="1% 30% 0 30%" />
       </div>
       <div className={styles.desc}>
-        <h2>test</h2>
+        <h2>Welcome on my Japanese quiz project! On this website you'll be able to test your hiragana and Katakana knowlege! Feel free to give me a feedback and have fun!</h2>
       </div>
     </div>
         <div className={styles.buttons}>
           <Button style={styles.button} href="/kana">
-            Practice kana
+           <b>Practice kana</b>
           </Button>
-          <button className={styles.buttonDisabled} disabled href="/Writing">
-          Coming Soon
+          <button className={styles.button} href="/feedback">
+          Feedback :)
           </button>
         </div>
       </Layout>
