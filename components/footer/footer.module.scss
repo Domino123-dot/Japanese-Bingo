@@ -1,12 +1,14 @@
 .footer {
   font-size: 20px;
-  display: flex;
+  float: left;
   color: black;
+  width: 100%;
 }
 
 .text {
   margin-right: 5%;
   margin-left: 7%;
+  float: left;
 }
 
 .a {
@@ -22,6 +24,7 @@
 .icons {
   margin-right: 5%;
   margin-left: 5%;
+  float: left;
 }
 
 .hiddenFooter {

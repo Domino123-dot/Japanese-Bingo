@@ -29,17 +29,20 @@ const both = () => {
           everything (except for kanji).
         </Header>
 
-    
         {questions.map((question) => (
-          <div className={styles.menu}>
-            <p>
-              {" "}
-              {question.question}
-              <input className={styles.input} spellCheck="false" type="text" input="answer"></input>{" "}
-            </p>
+          <div >
+
+       
+         <div className={styles.menu}> <p>{question.question}</p>
+              <p><input className={styles.input} spellCheck="false" type="text" input="answer"></input></p>
+              
+              </div>
+           
           </div>
         ))}
+
       </Layout>
+      
     </>
   );
 };
