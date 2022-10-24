@@ -29,22 +29,21 @@
 
 .hiddenFooter {
   font-size: 30px;
-  display: none;
+  visibility: hidden;
   color: black;
 }
 
 @media all and (max-width: 1024px) {
   .footer {
-    display: none;
+    visibility: hidden;
   }
   .text {
     font-size: 25px;
     
   }
-
-  .hiddenFooter {
-    display: flex;
-  }
+.hiddenFooter{
+visibility:visible;
+}
   .icons {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
