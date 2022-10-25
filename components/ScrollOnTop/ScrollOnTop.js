@@ -11,7 +11,6 @@ const ScrollOnTop = () => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 600) {
         setShowTopBtn(true);
-        console.log(window.scrollY);
       } else if (window.scrollY <= 700) {
         setShowTopBtn(false);
       } else {

@@ -16,6 +16,7 @@ const both = () => {
 
   useEffect(() => {
     getProducts();
+    console.log(questions);
   }, []);
 
   return (
@@ -29,13 +30,15 @@ const both = () => {
           everything (except for kanji).
         </Header>
 
-        {questions.map((question) => (
-          <div>
-            <div className={styles.menu}>
+        {
+  
+        questions.map((question,index) => (
+          <div key={index}>
+            <div key={index} className={styles.menu}>
               {" "}
-              <p>{question.question}</p>
+              <p key={index}>{question.question}</p>
               <p>
-                <input
+                <input key={index}
                   className={styles.input}
                   spellCheck="false"
                   type="text"

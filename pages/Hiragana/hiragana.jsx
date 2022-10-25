@@ -4,7 +4,23 @@ import Button from "../../components/button/button";
 import styles from "../../pages/Hiragana/hiragana.module.scss";
 import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
+import { useState,useEffect } from "react";
+import axios from "axios";
+
+
 const hiragana = () => {
+  
+const [questions, setQuestions] = useState([]);
+const getProducts = () => {
+  axios.get("http://localhost:8000/api/questions").then((response) => {
+    setQuestions(response.data);
+  });
+};
+
+useEffect(() => {
+  getProducts();
+}, []);
+
   return (
     <>
       <Backbutton />
