@@ -7,9 +7,8 @@ import Backbutton from "../../components/backButton/Backbutton";
 import { useState,useEffect } from "react";
 import axios from "axios";
 
-
 const hiragana = () => {
-  
+
 const [questions, setQuestions] = useState([]);
 const getProducts = () => {
   axios.get("http://localhost:8000/api/questions").then((response) => {
@@ -31,7 +30,7 @@ useEffect(() => {
           select all kana where you'll be able to quiz yourself from literally
           everything (except for kanji).
         </Header>
-
+    
         <div className={styles.buttons}>
           <Button href="/Hiragana" style={styles.menuClicked}>
             Hiragana <br />
@@ -50,7 +49,6 @@ useEffect(() => {
         <div className={styles.kanas}>
           <h1>Main kana</h1>
           <Button style={styles.options}>All</Button>
-          <Button style={styles.options}>a i u e o | あ い う え お</Button>
           <Button style={styles.options}>ka ki ku ko | か き く こ</Button>
           <Button style={styles.options} href="/kana">
             sa shi su se so | さ し す せ そ

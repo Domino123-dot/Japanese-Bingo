@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { StrictMode, useEffect, useState } from "react";
 import Header from "../../components/header/header";
-import Button from "../../components/button/button";
 import styles from "../../pages/Both/both.module.scss";
 import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
 import axios from "axios";
+import OptionButton from "../../components/OptionButton/OptionButton";
 const both = () => {
   const [questions, setQuestions] = useState([]);
-  const [category, setCategory] = useState("");
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -16,39 +15,126 @@ const both = () => {
 
   useEffect(() => {
     getProducts();
-    console.log(questions);
   }, []);
 
   return (
     <>
-      <Backbutton />
-      <Layout>
-        <Header title="Practice kana">
-          In this section you can practice your kana knowlege, you can choose
-          between japanese hiragana, katakana their combinations or you can
-          select all kana where you'll be able to quiz yourself from literally
-          everything (except for kanji).
-        </Header>
+      <StrictMode>
+        <Backbutton />
+        <Layout>
+          <Header title="Practice kana">
+            In this section you can practice your kana knowlege, you can choose
+            between japanese hiragana, katakana their combinations or you can
+            select all kana where you'll be able to quiz yourself from literally
+            everything (except for kanji).
+          </Header>
 
-        {
-  
-        questions.map((question,index) => (
-          <div key={index}>
-            <div key={index} className={styles.menu}>
-              {" "}
-              <p key={index}>{question.question}</p>
-              <p>
-                <input key={index}
-                  className={styles.input}
-                  spellCheck="false"
-                  type="text"
-                  input="answer"
-                ></input>
-              </p>
+          <div className={styles.flexbox}>
+            <div className={styles.kanas}>
+              <h1>Main Kana</h1>
+              <OptionButton
+              onChange={(values)=>console.log(values)}
+                options={[
+                  { text: "a i u e o | あ い う え お", value: "a/" },
+                  { text: "ka ki ku ko | か き く こ", value: "ka/" },
+                  { text: "sa shi su se so | さ し す せ そ", value: "sa/" },
+                  { text: " na ni nu ne no | な に ぬ ね の", value: "na/" },
+                  { text: "ha hi fu he ho | は ひ ふ へ ほ", value: "ha/" },
+                  { text: "ma mi mu me mo | ま み む め も", value: "ma/" },
+                  { text: "ya yu yo | や ゆ よ", value: "ya/" },
+                  { text: "ra ri ru re ro | ら り る れ ろ", value: "ra/" },
+                  { text: "wa wo n | わ を ん", value: "wa/" },
+                ]}
+              />
+            </div>
+
+            <div className={styles.kanas}>
+              <h1>Dakuten</h1>
+              <OptionButton
+                options={[
+                  { text: "ga gi gu ge go | が ぎ ぐ げ ご", value: "a/" },
+                  { text: "za ji zu ze zo | ざ じ ず ぜ ぞ", value: "ka/" },
+                  { text: "da ji zu de do | だ じ で ど", value: "sa/" },
+                  { text: "ba bi bu be bo | ば び ぶ べ ぼ", value: "na/" },
+                  { text: "pa pi pu pe po | ぱ ぴ ぷ ぺ ぽ", value: "ha/" },
+                ]}
+              />
+            </div>
+            <div className={styles.kanas}>
+              <h1>Combination</h1>
+              <OptionButton
+                options={[
+                  { text: "kya | きゃ", value: "a/" },
+                  { text: "cha | ちゃ", value: "ka/" },
+                  { text: "hya |ひゃ", value: "sa/" },
+                  { text: "rya |りゃ", value: "na/" },
+                  { text: "ja |じゃ", value: "ha/" },
+                  { text: "bya |びゃ", value: "ma/" },
+                  { text: "sha |しゃ", value: "ya/" },
+                  { text: "nya |にゃ", value: "ra/" },
+                  { text: "mya |みゃ", value: "wa/" },
+                  { text: "gya |ぎゃ", value: "wa/" },
+                  { text: "dya |ぢゃ", value: "wa/" },
+                  { text: "pya |ぴゃ", value: "wa/" },
+                ]}
+              />
             </div>
           </div>
-        ))}
-      </Layout>
+
+          <Header title="Katakana" />
+          <div className={styles.flexbox}>
+            <div className={styles.kanas}>
+              <h1>Main Kana</h1>
+              <OptionButton
+                options={[
+                  { text: "a i u e o | あ い う え お", value: "a/" },
+                  { text: "ka ki ku ko | か き く こ", value: "ka/" },
+                  { text: "sa shi su se so | さ し す せ そ", value: "sa/" },
+                  { text: " na ni nu ne no | な に ぬ ね の", value: "na/" },
+                  { text: "ha hi fu he ho | は ひ ふ へ ほ", value: "ha/" },
+                  { text: "ma mi mu me mo | ま み む め も", value: "ma/" },
+                  { text: "ya yu yo | や ゆ よ", value: "ya/" },
+                  { text: "ra ri ru re ro | ら り る れ ろ", value: "ra/" },
+                  { text: "wa wo n | わ を ん", value: "wa/" },
+                ]}
+              />
+            </div>
+
+            <div className={styles.kanas}>
+              <h1>Dakuten</h1>
+              <OptionButton
+                options={[
+                  { text: "a i u e o | あ い う え お", value: "a/" },
+                  { text: "ka ki ku ko | か き く こ", value: "ka/" },
+                  { text: "sa shi su se so | さ し す せ そ", value: "sa/" },
+                  { text: " na ni nu ne no | な に ぬ ね の", value: "na/" },
+                  { text: "ha hi fu he ho | は ひ ふ へ ほ", value: "ha/" },
+                  { text: "ma mi mu me mo | ま み む め も", value: "ma/" },
+                  { text: "ya yu yo | や ゆ よ", value: "ya/" },
+                  { text: "ra ri ru re ro | ら り る れ ろ", value: "ra/" },
+                  { text: "wa wo n | わ を ん", value: "wa/" },
+                ]}
+              />
+            </div>
+            <div className={styles.kanas}>
+              <h1>Combination</h1>
+              <OptionButton
+                options={[
+                  { text: "a i u e o | あ い う え お", value: "a/" },
+                  { text: "ka ki ku ko | か き く こ", value: "ka/" },
+                  { text: "sa shi su se so | さ し す せ そ", value: "sa/" },
+                  { text: " na ni nu ne no | な に ぬ ね の", value: "na/" },
+                  { text: "ha hi fu he ho | は ひ ふ へ ほ", value: "ha/" },
+                  { text: "ma mi mu me mo | ま み む め も", value: "ma/" },
+                  { text: "ya yu yo | や ゆ よ", value: "ya/" },
+                  { text: "ra ri ru re ro | ら り る れ ろ", value: "ra/" },
+                  { text: "wa wo n | わ を ん", value: "wa/" },
+                ]}
+              />
+            </div>
+          </div>
+        </Layout>
+      </StrictMode>
     </>
   );
 };
