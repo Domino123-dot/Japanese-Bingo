@@ -1,0 +1,28 @@
+
+.header {
+  width: 100%;
+  font-weight: 900;
+}
+
+
+.head {
+  color: rgb(81, 0, 81);
+  text-align: center;
+  font-size: 3rem;
+
+}
+.desc {
+  margin-left: 35%;
+  margin-right: 35%;
+  text-align: center;
+  text-overflow: inherit;
+  font-size: 0.8rem;
+  text-align: justify;
+}
+
+@media all and (max-width: 991px) {
+  .desc {
+    margin: 0 0 0 0;
+  }
+}
+
