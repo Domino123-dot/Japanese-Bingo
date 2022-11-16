@@ -7,7 +7,7 @@ import Backbutton from "../../components/backButton/Backbutton";
 const kana = () => {
   return (
     <>
-    <Backbutton />
+      <Backbutton />
       <Layout>
         <Header title="Practice kana">
           In this section you can practice your kana knowlege, you can choose

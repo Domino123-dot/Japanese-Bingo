@@ -9,10 +9,9 @@
   font-size: 1.4rem;
   width: 120px;
   padding: 5px 5px 5px 6px;
-  color: black;
-  border: 3px solid #2b2a2a;
+  border: 3px solid gray;
   border-radius: 15px;
-  background: #3d3d3d;
+  background: inherit;
   font-family: "Roboto Condensed";
   font-weight: 500;
   outline: none;
@@ -20,7 +19,7 @@
   float: right;
   &:hover {
     transition: 1.5s;
-    border: 3px solid #d6d6d6;
-    color: #d6d6d6;
+    border: 3px solid black;
+    color: black;
   }
 }

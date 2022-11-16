@@ -3,7 +3,9 @@ import styles from "../style/index.module.scss";
 import Button from "../components/button/button";
 import Layout from "../components/layout/layout";
 import Line from "../components/line";
+import { useLanguageContext } from "../components/context";
 export default function Home() {
+
   return (
     <>
       <Layout>
@@ -14,18 +16,15 @@ export default function Home() {
         <Line color="#241f1f" margin="1% 30% 0 30%" />
       </div>
       <div className={styles.desc}>
-        <h2>Free to use japanese kana quiz, you can practice your Hiragana and
-          Katakana knowlege in "Practice kana" section of this website, on the
-          other hand I present to you "Practice writing" where you can practice
-          your kana knowlege by writing whole words, enjoy!</h2>
+        <h2>Welcome on my Japanese quiz project! On this website you'll be able to test your hiragana and Katakana knowlege! Feel free to give me a feedback and have fun!</h2>
       </div>
     </div>
         <div className={styles.buttons}>
           <Button style={styles.button} href="/kana">
-            Practice kana
+           <b>Practice kana</b>
           </Button>
-          <button className={styles.buttonDisabled} disabled href="/Writing">
-          Coming Soon
+          <button className={styles.button} href="/feedback">
+          Feedback :)
           </button>
         </div>
       </Layout>

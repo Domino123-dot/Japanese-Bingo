@@ -4,19 +4,33 @@ import Button from "../../components/button/button";
 import styles from "../../pages/Hiragana/hiragana.module.scss";
 import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
+import { useState,useEffect } from "react";
+import axios from "axios";
+
 const hiragana = () => {
+
+const [questions, setQuestions] = useState([]);
+const getProducts = () => {
+  axios.get("http://localhost:8000/api/questions").then((response) => {
+    setQuestions(response.data);
+  });
+};
+
+useEffect(() => {
+  getProducts();
+}, []);
+
   return (
     <>
-    <Backbutton />
+      <Backbutton />
       <Layout>
-        
         <Header lang="false" title="Practice kana">
           In this section you can practice your kana knowlege, you can choose
           between japanese hiragana, katakana their combinations or you can
           select all kana where you'll be able to quiz yourself from literally
           everything (except for kanji).
         </Header>
-
+    
         <div className={styles.buttons}>
           <Button href="/Hiragana" style={styles.menuClicked}>
             Hiragana <br />
@@ -35,7 +49,6 @@ const hiragana = () => {
         <div className={styles.kanas}>
           <h1>Main kana</h1>
           <Button style={styles.options}>All</Button>
-          <Button style={styles.options}>a i u e o | あ い う え お</Button>
           <Button style={styles.options}>ka ki ku ko | か き く こ</Button>
           <Button style={styles.options} href="/kana">
             sa shi su se so | さ し す せ そ
@@ -119,7 +132,7 @@ const hiragana = () => {
             gya|ぎゃ
           </Button>
           <Button style={styles.options} href="/kana">
-            dya|ぢゃ  
+            dya|ぢゃ
           </Button>
           <Button style={styles.options} href="/kana">
             pya|ぴゃ
@@ -129,7 +142,5 @@ const hiragana = () => {
     </>
   );
 };
-
- 
 
 export default hiragana;

@@ -1,87 +1,62 @@
-
 @import url(https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap);
 
 .button {
   font-size: 1.4rem;
   width: 120px;
   padding: 5px 5px 5px 6px;
-  color: black;
-  border: 3px solid #2b2a2a;
+  border: 3px solid gray;
   border-radius: 12px;
-  background:#3d3d3d;
+  background:inherit;
   font-family: "Roboto Condensed";
   font-weight: 500;
   outline: none;
   transition: 1.5s;
+  display: inline-grid;
+
   &:hover {
     transition: 1.5s;
-    border: 3px solid #d6d6d6;
-    color: #d6d6d6;
+    color: black;
+    border: 3px solid black;
   }
 }
 
 .HiddenList {
-  font-family: "Roboto Condensed";
-  font-weight: 700;
+  font-weight: 400;
   position: absolute;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.2s linear, opacity 0.2s linear;
-  ul {
-    list-style: none;
-    padding: 0;
-    border: 3px solid #2b2a2a;
-    border-radius: 15px;
-    li {
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-    }
-  }
 }
 
 .ActiveList {
+  
   cursor: pointer;
-  position: absolute;
   list-style-type: none;
   visibility: visible;
   opacity: 1;
-  ul {
-    list-style: none;
-    padding: 0;
+}
 
-    li {
-      padding: 0.5rem 1rem;
-      transition: 1.5s;
-      &:hover {
-        color: white;
-        transition: 1.5s;
-      }
-    }
+.listButton {
+  border: none;
+  background: inherit;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  transition: 1.5s;
+
+  &:hover {
+    transition: 1.5s;
+    color: black;
   }
 }
 
 @media all and (max-width: 1024px) {
-  .HiddenList {
-    ul {
-      position: relative;
-      margin-top: -95%;
-      li {
-        padding: 0.2rem 1rem;
-        cursor: pointer;
-      }
-    }
-  }
   .button {
     margin: 0 0 10% 0;
   }
 }
 
 @media all and (max-width: 480px) {
-  .HiddenList {
-    ul {
-      margin-top: -65%;
-    }
-  }
   .button {
     margin: 0 0 23% 0;
   }
