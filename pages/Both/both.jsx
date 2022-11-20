@@ -12,6 +12,7 @@ const both = () => {
   const [SecondArray, SetSecondArray] = useState([]);
   const [ThirdArray, SetThirdArray] = useState([]);
   const appearButton = false;
+ 
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -28,9 +29,12 @@ const both = () => {
     }
   }
 
+  function StartGame() {
+    console.log("Waiting...");
+  }
   return (
     <>
-      <StrictMode>
+      
         <Backbutton />
         <Layout>
           <Header title="Practice kana">
@@ -99,15 +103,17 @@ const both = () => {
               />
             </div>
           </div>
+
           <div>
             <button
+              onClick={StartGame}
               className={clsx(appearButton ? styles.button : styles.buttonDsp)}
             >
               Start!
             </button>
           </div>
         </Layout>
-      </StrictMode>
+     
     </>
   );
 };

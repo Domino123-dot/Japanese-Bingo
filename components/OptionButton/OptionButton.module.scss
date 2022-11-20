@@ -23,4 +23,23 @@
     background-color: gray;
   }
 
-  
+
+@media all and (max-width: 1024px){
+
+.option{
+
+  font-size: medium;
+
+}
+
+
+}
+@media all and (max-width: 500px){
+
+.option{
+
+font-size: small;
+
+}
+
+}
