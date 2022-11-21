@@ -1,5 +1,5 @@
 .option {
-    font-size: 1.4rem;
+    font-size: large;
     font-weight: bold;
     border: 4px solid gray;
     border-radius: 15px;
@@ -33,14 +33,5 @@
 
 }
 
-
-}
-@media all and (max-width: 500px){
-
-.option{
-
-font-size: small;
-
-}
 
 }
