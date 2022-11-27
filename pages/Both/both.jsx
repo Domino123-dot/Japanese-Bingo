@@ -1,4 +1,4 @@
-import React, { StrictMode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/header/header";
 import styles from "../../pages/Both/both.module.scss";
 import Layout from "../../components/layout/layout";
@@ -6,11 +6,16 @@ import Backbutton from "../../components/backButton/Backbutton";
 import axios from "axios";
 import OptionButton from "../../components/OptionButton/OptionButton";
 import clsx from "clsx";
+
+
+
+
 const both = () => {
   const [questions, setQuestions] = useState([]);
   const [FirstArray, SetFirtArray] = useState([]);
   const [SecondArray, SetSecondArray] = useState([]);
   const [ThirdArray, SetThirdArray] = useState([]);
+  const [Pool , setPool] = useState([]);
   const appearButton = false;
 
   const getProducts = () => {
@@ -21,7 +26,8 @@ const both = () => {
 
   useEffect(() => {
     getProducts();
-  }, []);
+    console.log(Pool);
+  }, [Pool]);
 
   {
     if (FirstArray != 0 || SecondArray != 0 || ThirdArray != 0) {
@@ -30,7 +36,10 @@ const both = () => {
   }
 
   function StartGame() {
+  
+    setPool(FirstArray+SecondArray+ThirdArray);
     console.log("Waiting...");
+    console.log(Pool)
   }
   return (
     <>
