@@ -1,93 +1,72 @@
-
-
 .flexbox {
   display: flex;
 }
-
-.flexboxDissapeared{
+.QuizFlexbox {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.flexboxDissapeared {
   display: none;
 }
 
-.QuizFlexbox{
-  display: flex;
-  flex-direction: column-reverse;
-
-}
 .kanas {
   flex: 1;
   text-align: center;
+}
+
+.button {
+  margin-top: 5rem;
+  width: 30%;
+  left: 35%;
+  position: absolute;
+  border-radius: 10px;
+  border: 4px solid gray;
+  background-color: inherit;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  height: 6rem;
+  cursor: pointer;
+  visibility: visible;
+  animation: FadeInDelayed 1s;
+  &:hover {
+    border: 4px solid black;
+    transition: 2s;
+  }
+}
+
+.buttonDsp {
+  visibility: hidden;
+}
+
+@keyframes FadeInDelayed {
+  0% {
+    opacity: 0;
   }
 
-  
+  100% {
+    opacity: 1;
+  }
+}
 
-  .button{
+@media all and (max-width: 1024px) {
+  .button {
+    width: 60%;
+    left: 18%;
+  }
+  .flexbox {
+    flex-direction: column;
+  }
 
-    float:left;
-    margin-top: 5rem;
-    width: 30%;
-    left: 35%;
-    position: absolute;
-    border-radius: 10px;
-    border:4px solid gray;
-    background-color: inherit;
-    text-align: center;
-    font-weight: bold;
-    font-size: large;
-    height:6rem;
-    cursor:pointer;
-    visibility: visible;
-    animation: FadeInDelayed 1s;
-    &:hover{
-    
-        border:4px solid black;
-        transition: 2s;
-    
-    }
-    }
-    
-    .buttonDsp{
+  .QuizFlexbox{
+    flex-direction: column;
 
-       visibility: hidden;
-    
-    }
-
-    @keyframes FadeInDelayed {
-      0% {
-        opacity: 0;
-        
-      }
-    
-  
-      100% {
-        opacity: 1;
-
-      }
-    }
-
-    @media all and (max-width: 1024px){
-
-      .button{
-      width:60%; 
-      left:18%;
-      }
-    .flexbox{
-
-      flex-direction: column;
-    }
-    .menu {
-      width: 29%;
-    }
-  
-    .input {
-      margin-bottom: 10%;
-      height: 100px;
-    }
-
-    
-
-    }
+  }
 
 
+
+}
 
 .menu {
   font-size: 55px;
@@ -97,17 +76,15 @@
   background-color: #7e6e3d;
   color: white;
   font-weight: bold;
-  width: 15%;
-  margin-right: 5%;
-  margin-bottom: 2%;
+  width: 10%;
+  margin-bottom: 3%;
   margin-left: 3%;
 }
 
-
 .input {
   outline: none;
-  width: 80%;
-  height: 50px;
+  width: 70%;
+  height:20%;
   border-radius: 5px;
   text-align: center;
   font-size: 35px;
@@ -119,8 +96,4 @@
     background-color: #939393;
     transition: 1s;
   }
-
-
-  
 }
-
