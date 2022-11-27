@@ -8,6 +8,11 @@
   display: none;
 }
 
+.QuizFlexbox{
+  display: flex;
+  flex-direction: column-reverse;
+
+}
 .kanas {
   flex: 1;
   text-align: center;
@@ -69,6 +74,14 @@
 
       flex-direction: column;
     }
+    .menu {
+      width: 29%;
+    }
+  
+    .input {
+      margin-bottom: 10%;
+      height: 100px;
+    }
 
     
 
@@ -76,7 +89,7 @@
 
 
 
-/*.menu {
+.menu {
   font-size: 55px;
   border-radius: 15px;
   text-align: center;
@@ -110,18 +123,4 @@
 
   
 }
-*/
 
-/*
-@media all and (max-width: 1024px) {
-  .menu {
-    width: 29%;
-  }
-
-  .input {
-    margin-bottom: 10%;
-    height: 100px;
-  }
-}
-
-*/

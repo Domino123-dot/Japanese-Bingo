@@ -7,17 +7,14 @@ import axios from "axios";
 import OptionButton from "../../components/OptionButton/OptionButton";
 import clsx from "clsx";
 
-
-
-
 const both = () => {
   const [questions, setQuestions] = useState([]);
   const [FirstArray, SetFirtArray] = useState([]);
   const [SecondArray, SetSecondArray] = useState([]);
   const [ThirdArray, SetThirdArray] = useState([]);
-  const [Pool , setPool] = useState([]);
+  const [Pool, setPool] = useState([]);
   const appearButton = false;
-  const [StartClicked , setStartClicked] = useState(false);
+  const [StartClicked, setStartClicked] = useState(false);
 
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
@@ -28,7 +25,7 @@ const both = () => {
   useEffect(() => {
     getProducts();
     console.log(Pool);
-  }, [Pool , StartClicked]);
+  }, [Pool, StartClicked]);
 
   {
     if (FirstArray != 0 || SecondArray != 0 || ThirdArray != 0) {
@@ -37,14 +34,13 @@ const both = () => {
   }
 
   function StartGame() {
-  
-    setPool(FirstArray+SecondArray+ThirdArray);
+    setPool(FirstArray + SecondArray + ThirdArray);
     console.log(Pool);
     setStartClicked(true);
-
   }
   return (
     <>
+    <React.StrictMode>
       <Backbutton />
       <Layout>
         <Header title="Practice kana">
@@ -54,7 +50,9 @@ const both = () => {
           everything (except for kanji).
         </Header>
 
-        <div className={StartClicked ? styles.flexboxDissapeared : styles.flexbox}>
+        <div
+          className={StartClicked ? styles.flexboxDissapeared : styles.flexbox}
+        >
           <div className={styles.kanas}>
             <h1>Main Kana</h1>
             <OptionButton
@@ -114,9 +112,27 @@ const both = () => {
           </div>
         </div>
 
-        <div className={StartClicked ? styles.flexbox : styles.flexboxDissapeared}>
+        <div
+          className={StartClicked ? styles.flexbox : styles.flexboxDissapeared}
+        >
           <div className={styles.kanas}>
-         
+            {questions.map((question, index) => (
+              <div key={index} className={styles.QuizFlexbox}>
+                <div key={index} className={styles.menu}>
+                  {" "}
+                  <p key={index}>{question.question}</p>
+                  <p>
+                    <input
+                      key={index}
+                      className={styles.input}
+                      spellCheck="false"
+                      type="text"
+                    ></input>
+                  </p>
+                </div>
+              </div>
+            ))}
+            // mapowanie pytań do quizu
           </div>
         </div>
 
@@ -128,10 +144,8 @@ const both = () => {
             Start!
           </button>
         </div>
-
-
-
       </Layout>
+      </React.StrictMode>
     </>
   );
 };
