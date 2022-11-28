@@ -113,25 +113,23 @@ const both = () => {
               />
             </div>
           </div>
-          <div className={StartClicked ? styles.QuizFlexbox : styles.flexboxDissapeared}>
-                
-          {questions.map((question, index) => (
-            
-                <div className={styles.menu}>
-                  
-                  {question.question}
-                  
-                  <input
-                      key={index}
-                      className={styles.input}
-                      spellCheck="false"
-                      type="text"
-                    ></input>
-                    
-                  </div>  
-              
-          
-          ))}
+          <div
+            className={
+              StartClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
+            }
+          >
+            {questions.map((question, index) => (
+              <div className={styles.menu}>
+                {question.question}
+
+                <input
+                  key={index}
+                  className={styles.input}
+                  spellCheck="false"
+                  type="text"
+                ></input>
+              </div>
+            ))}
           </div>
 
           <div

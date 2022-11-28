@@ -3,8 +3,8 @@
 }
 .QuizFlexbox {
   display: flex;
-  flex: 1;
   flex-wrap: wrap;
+  gap: 20px;
 }
 .flexboxDissapeared {
   display: none;
@@ -59,35 +59,36 @@
     flex-direction: column;
   }
 
-  .QuizFlexbox{
-    flex-direction: column;
-
+  .QuizFlexbox {
+    flex-grow: 4;
   }
 
-
-
+  .menu {
+    flex: 1 0 30%;
+  }
 }
 
 .menu {
   font-size: 55px;
-  border-radius: 15px;
+  border-radius: 10px;
+  height: 160px;
   text-align: center;
   text-decoration: none;
   background-color: #7e6e3d;
   color: white;
   font-weight: bold;
-  width: 10%;
+  width: 15%;
   margin-bottom: 3%;
   margin-left: 3%;
 }
 
 .input {
   outline: none;
-  width: 70%;
-  height:20%;
+  width: 80%;
+  height: 30%;
   border-radius: 5px;
   text-align: center;
-  font-size: 35px;
+  font-size: 25px;
   text-decoration: none;
   border: none;
   caret-color: transparent;
