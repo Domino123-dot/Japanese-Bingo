@@ -50,7 +50,7 @@
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 750px) {
   .button {
     width: 60%;
     left: 18%;
@@ -66,6 +66,7 @@
   .menu {
     flex: 1 0 30%;
   }
+
 }
 
 .menu {

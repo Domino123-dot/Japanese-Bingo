@@ -25,6 +25,7 @@ const both = () => {
   useEffect(() => {
     getProducts();
     console.log(Pool);
+   
   }, [Pool, StartClicked]);
 
   {
@@ -35,8 +36,9 @@ const both = () => {
 
   function StartGame() {
     setPool(FirstArray + SecondArray + ThirdArray);
-    console.log(Pool);
     setStartClicked(true);
+
+    
   }
   return (
     <>
@@ -119,8 +121,8 @@ const both = () => {
             }
           >
             {questions.map((question, index) => (
-              <div className={styles.menu}>
-                {question.question}
+              <div key={index} className={styles.menu}>
+                {question.category}
 
                 <input
                   key={index}
