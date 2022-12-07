@@ -19,13 +19,14 @@ const both = () => {
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
+      console.log(response.data);
+      
     });
   };
 
   useEffect(() => {
     getProducts();
     console.log(Pool);
-   
   }, [Pool, StartClicked]);
 
   {
@@ -37,8 +38,6 @@ const both = () => {
   function StartGame() {
     setPool(FirstArray + SecondArray + ThirdArray);
     setStartClicked(true);
-
-    
   }
   return (
     <>
@@ -120,18 +119,20 @@ const both = () => {
               StartClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
             }
           >
-            {questions.map((question, index) => (
-              <div key={index} className={styles.menu}>
-                {question.category}
+            {questions
+              .filter((question) => question.category == "wa/")
+              .map((question, index) => (
+                <div key={index} className={styles.menu}>
+                  {question.question}
 
-                <input
-                  key={index}
-                  className={styles.input}
-                  spellCheck="false"
-                  type="text"
-                ></input>
-              </div>
-            ))}
+                  <input
+                    key={index}
+                    className={styles.input}
+                    spellCheck="false"
+                    type="text"
+                  ></input>
+                </div>
+              ))}
           </div>
 
           <div
