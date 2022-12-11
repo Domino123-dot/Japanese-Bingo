@@ -15,18 +15,16 @@ const both = () => {
   const [Pool, setPool] = useState([]);
   const appearButton = false;
   const [StartClicked, setStartClicked] = useState(false);
-  const SelectedItems = [Pool];
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
-      
     });
   };
 
   useEffect(() => {
     getProducts({});
+    console.log(Pool);
   }, [, StartClicked]);
-
 
   {
     if (FirstArray != 0 || SecondArray != 0 || ThirdArray != 0) {
@@ -35,13 +33,13 @@ const both = () => {
   }
 
   function StartGame() {
-    setPool(FirstArray + SecondArray + ThirdArray);
+    setPool((Pool) => [...Pool, ...FirstArray, ...SecondArray, ...ThirdArray]);
     setStartClicked(true);
-    
   }
+
   return (
     <>
-      
+      <React.StrictMode>
         <Backbutton />
         <Layout>
           <Header title="Practice kana">
@@ -61,7 +59,6 @@ const both = () => {
               <OptionButton
                 onChange={(values) => {
                   SetFirtArray(values);
-                 
                 }}
                 options={[
                   { text: "a i u e o | あ い う え お", value: "a/" },
@@ -121,7 +118,11 @@ const both = () => {
             }
           >
             {questions
-              .filter((question) => SelectedItems.includes(question.category))
+              .filter(
+                (question) =>
+                  Pool.includes(question.category) && question.is_active == true
+              )
+
               .map((question, index) => (
                 <div key={index} className={styles.menu}>
                   {question.question}
@@ -147,7 +148,7 @@ const both = () => {
             </button>
           </div>
         </Layout>
-  
+      </React.StrictMode>
     </>
   );
 };
