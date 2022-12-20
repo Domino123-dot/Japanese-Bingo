@@ -15,6 +15,10 @@ const both = () => {
   const [Pool, setPool] = useState([]);
   const appearButton = false;
   const [StartClicked, setStartClicked] = useState(false);
+  const SelectedItems = [Pool];
+  const answer = "";
+
+
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -23,7 +27,7 @@ const both = () => {
 
   useEffect(() => {
     getProducts({});
-    console.log(Pool);
+    console.log(SelectedItems);
   }, [, StartClicked]);
 
   {
@@ -35,6 +39,12 @@ const both = () => {
   function StartGame() {
     setPool((Pool) => [...Pool, ...FirstArray, ...SecondArray, ...ThirdArray]);
     setStartClicked(true);
+  }
+
+  function IsCorrect(){
+
+    
+    
   }
 
   return (
@@ -128,10 +138,16 @@ const both = () => {
                   {question.question}
 
                   <input
+                    onChange={(e)=>{
+                      answer = e.target.value.toLowerCase();
+                      IsCorrect;
+                    }}
                     key={index}
                     className={styles.input}
                     spellCheck="false"
                     type="text"
+                    id="answer"
+                    autoComplete="off"
                   ></input>
                 </div>
               ))}
@@ -146,6 +162,7 @@ const both = () => {
             >
               Start!
             </button>
+            
           </div>
         </Layout>
       </React.StrictMode>
