@@ -15,26 +15,19 @@ const both = () => {
   const [Pool, setPool] = useState([]);
   const appearButton = false;
   const [StartClicked, setStartClicked] = useState(false);
-<<<<<<< HEAD
   const SelectedItems = [Pool];
   const answer = "";
+  const [isCorrect , setIsCorrect] = useState(false);
 
-
-=======
->>>>>>> 227f950d6c39b511bd331a80ff14ac8a8ec4ed33
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
+      
     });
   };
 
   useEffect(() => {
     getProducts({});
-<<<<<<< HEAD
-    console.log(SelectedItems);
-=======
-    console.log(Pool);
->>>>>>> 227f950d6c39b511bd331a80ff14ac8a8ec4ed33
   }, [, StartClicked]);
 
   {
@@ -46,16 +39,8 @@ const both = () => {
   function StartGame() {
     setPool((Pool) => [...Pool, ...FirstArray, ...SecondArray, ...ThirdArray]);
     setStartClicked(true);
-<<<<<<< HEAD
   }
-
-  function IsCorrect(){
-
-    
-    
-=======
->>>>>>> 227f950d6c39b511bd331a80ff14ac8a8ec4ed33
-  }
+ 
 
   return (
     <>
@@ -144,16 +129,20 @@ const both = () => {
               )
 
               .map((question, index) => (
-                <div key={index} className={styles.menu}>
+                <div key={index} className={clsx(isCorrect ? styles.menuCorrect : styles.menu)}>
                   {question.question}
-
+                  
                   <input
-                    onChange={(e)=>{
+                    onChange={(e) => {
                       answer = e.target.value.toLowerCase();
-                      IsCorrect;
+                      if(answer === question.good_answer){
+                        setIsCorrect(true);
+                        
+                      }
+                     
                     }}
                     key={index}
-                    className={styles.input}
+                    className={isCorrect ? styles.inputCorrect : styles.input}
                     spellCheck="false"
                     type="text"
                     id="answer"
@@ -162,6 +151,8 @@ const both = () => {
                 </div>
               ))}
           </div>
+
+          
 
           <div
             className={clsx(StartClicked ? styles.flexboxDissapeared : null)}
@@ -172,7 +163,6 @@ const both = () => {
             >
               Start!
             </button>
-            
           </div>
         </Layout>
       </React.StrictMode>
