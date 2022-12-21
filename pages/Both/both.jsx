@@ -16,9 +16,7 @@ const both = () => {
   const appearButton = false;
   const [StartClicked, setStartClicked] = useState(false);
   const SelectedItems = [Pool];
-  const answer = "";
-  const [isCorrect , setIsCorrect] = useState(false);
-
+  
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -117,23 +115,30 @@ const both = () => {
               />
             </div>
           </div>
+          
           <div
             className={
               StartClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
             }
           >
+            
             {questions
               .filter(
                 (question) =>
                   Pool.includes(question.category) && question.is_active == true
+                  
               )
-
-              .map((question, index) => (
+              
+              .map((question, index) => {
+                const [isCorrect , setIsCorrect] = useState(false)
+                return (
                 <div key={index} className={clsx(isCorrect ? styles.menuCorrect : styles.menu)}>
+                  
                   {question.question}
                   
                   <input
                     onChange={(e) => {
+                      const answer = "";
                       answer = e.target.value.toLowerCase();
                       if(answer === question.good_answer){
                         setIsCorrect(true);
@@ -149,7 +154,7 @@ const both = () => {
                     autoComplete="off"
                   ></input>
                 </div>
-              ))}
+)})}
           </div>
 
           
