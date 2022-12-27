@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Header from "../../components/header/header";
 import styles from "../../pages/Both/both.module.scss";
 import Layout from "../../components/layout/layout";
@@ -8,6 +8,7 @@ import OptionButton from "../../components/OptionButton/OptionButton";
 import clsx from "clsx";
 
 const both = () => {
+  
   const [questions, setQuestions] = useState([]);
   const [FirstArray, SetFirtArray] = useState([]);
   const [SecondArray, SetSecondArray] = useState([]);
@@ -16,7 +17,8 @@ const both = () => {
   const appearButton = false;
   const [StartClicked, setStartClicked] = useState(false);
   const SelectedItems = [Pool];
-  
+  const [Correct , setCorrect] = useState(null); 
+            
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -26,6 +28,8 @@ const both = () => {
 
   useEffect(() => {
     getProducts({});
+    
+    
   }, [, StartClicked]);
 
   {
@@ -37,10 +41,11 @@ const both = () => {
   function StartGame() {
     setPool((Pool) => [...Pool, ...FirstArray, ...SecondArray, ...ThirdArray]);
     setStartClicked(true);
+    
   }
  
-
   return (
+    
     <>
       <React.StrictMode>
         <Backbutton />
@@ -115,49 +120,58 @@ const both = () => {
               />
             </div>
           </div>
-          
+
           <div
             className={
               StartClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
             }
+            
           >
             
-            {questions
+            {
+            questions
+            
               .filter(
+                
                 (question) =>
+                
                   Pool.includes(question.category) && question.is_active == true
-                  
               )
               
-              .map((question, index) => {
-                const [isCorrect , setIsCorrect] = useState(false)
-                return (
-                <div key={index} className={clsx(isCorrect ? styles.menuCorrect : styles.menu)}>
-                  
-                  {question.question}
-                  
-                  <input
-                    onChange={(e) => {
-                      const answer = "";
-                      answer = e.target.value.toLowerCase();
-                      if(answer === question.good_answer){
-                        setIsCorrect(true);
-                        
-                      }
-                     
-                    }}
-                    key={index}
-                    className={isCorrect ? styles.inputCorrect : styles.input}
-                    spellCheck="false"
-                    type="text"
-                    id="answer"
-                    autoComplete="off"
-                  ></input>
-                </div>
-)})}
-          </div>
 
-          
+              .map((question) => {
+              
+             return(
+                  <div
+                    key={question.pk}
+                    className={clsx(
+                      Correct === question.pk ? styles.menuCorrect : styles.menu
+                    )}
+                  >
+                    {question.question}
+                
+                    
+                    <input
+                      onChange={(e) => {
+                        const answer = "";
+                        answer = e.target.value.toLowerCase();
+                        if (answer === question.good_answer) {
+                         setCorrect(question.pk)
+                        
+                        }
+                      }}
+                      key={question.pk}
+                      className={Correct === question.pk ? styles.inputCorrect : styles.input}
+                      spellCheck="false"
+                      type="text"
+                      id="answer"
+                      autoComplete="off"
+                    ></input>
+                  </div>
+             )
+                
+              })}
+          </div>
 
           <div
             className={clsx(StartClicked ? styles.flexboxDissapeared : null)}
