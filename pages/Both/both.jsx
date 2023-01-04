@@ -1,6 +1,7 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState} from "react";
 import Header from "../../components/header/header";
 import styles from "../../pages/Both/both.module.scss";
+
 import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
 import axios from "axios";
@@ -10,15 +11,15 @@ import clsx from "clsx";
 const both = () => {
   
   const [questions, setQuestions] = useState([]);
-  const [FirstArray, SetFirtArray] = useState([]);
-  const [SecondArray, SetSecondArray] = useState([]);
-  const [ThirdArray, SetThirdArray] = useState([]);
-  const [Pool, setPool] = useState([]);
+  const [firstQuestionPool, setFirstQuestionPool] = useState([]);
+  const [secondQuestionPool, setSecondQuestionPool] = useState([]);
+  const [thirdQuestionPool, setThirdQuestionPool] = useState([]);
+  const [pool, setPool] = useState([]);
   const appearButton = false;
-  const [StartClicked, setStartClicked] = useState(false);
-  const SelectedItems = [Pool];
-  const [Correct , setCorrect] = useState(null); 
-            
+  const [startClicked, setStartClicked] = useState(false);
+  const selectedItems = [pool];
+  const [isDisabled , setIsDisabled] = useState(false);
+  const [correct , setCorrect] = useState([]); 
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -30,19 +31,20 @@ const both = () => {
     getProducts({});
     
     
-  }, [, StartClicked]);
+  }, [, startClicked]);
 
   {
-    if (FirstArray != 0 || SecondArray != 0 || ThirdArray != 0) {
+    if (firstQuestionPool != 0 || secondQuestionPool!= 0 || thirdQuestionPool != 0) {
       appearButton = true;
     }
   }
 
   function StartGame() {
-    setPool((Pool) => [...Pool, ...FirstArray, ...SecondArray, ...ThirdArray]);
+    setPool((pool) => [...pool, ...firstQuestionPool, ...secondQuestionPool, ...thirdQuestionPool]);
     setStartClicked(true);
     
   }
+
  
   return (
     
@@ -59,14 +61,14 @@ const both = () => {
 
           <div
             className={
-              StartClicked ? styles.flexboxDissapeared : styles.flexbox
+              startClicked ? styles.flexboxDissapeared : styles.flexbox
             }
           >
             <div className={styles.kanas}>
               <h1>Main Kana</h1>
               <OptionButton
                 onChange={(values) => {
-                  SetFirtArray(values);
+                  setFirstQuestionPool(values);
                 }}
                 options={[
                   { text: "a i u e o | あ い う え お", value: "a/" },
@@ -86,7 +88,7 @@ const both = () => {
               <h1>Dakuten</h1>
               <OptionButton
                 onChange={(values) => {
-                  SetSecondArray(values);
+                  setSecondQuestionPool(values);
                 }}
                 options={[
                   { text: "ga gi gu ge go | が ぎ ぐ げ ご", value: "ga/" },
@@ -101,7 +103,7 @@ const both = () => {
               <h1>Combination</h1>
               <OptionButton
                 onChange={(values) => {
-                  SetThirdArray(values);
+                  setThirdQuestionPool(values);
                 }}
                 options={[
                   { text: "kya | きゃ", value: "kya/" },
@@ -123,7 +125,7 @@ const both = () => {
 
           <div
             className={
-              StartClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
+              startClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
             }
             
           >
@@ -135,7 +137,7 @@ const both = () => {
                 
                 (question) =>
                 
-                  Pool.includes(question.category) && question.is_active == true
+                  pool.includes(question.category) && question.is_active === true
               )
               
 
@@ -144,9 +146,8 @@ const both = () => {
              return(
                   <div
                     key={question.pk}
-                    className={clsx(
-                      Correct === question.pk ? styles.menuCorrect : styles.menu
-                    )}
+                    className={correct.includes(question.pk) ? styles.menuCorrect : styles.menu}
+                  
                   >
                     {question.question}
                 
@@ -156,13 +157,16 @@ const both = () => {
                         const answer = "";
                         answer = e.target.value.toLowerCase();
                         if (answer === question.good_answer) {
-                         setCorrect(question.pk)
-                        
+                        setCorrect([...correct , question.pk])
+                        setIsDisabled(true);
+                             
                         }
+                     
                       }}
                       key={question.pk}
-                      className={Correct === question.pk ? styles.inputCorrect : styles.input}
+                      className={correct.includes(question.pk) ? styles.inputCorrect : styles.input}
                       spellCheck="false"
+                      disabled = {isDisabled}
                       type="text"
                       id="answer"
                       autoComplete="off"
@@ -174,7 +178,7 @@ const both = () => {
           </div>
 
           <div
-            className={clsx(StartClicked ? styles.flexboxDissapeared : null)}
+            className={clsx(startClicked ? styles.flexboxDissapeared : null)}
           >
             <button
               onClick={StartGame}
