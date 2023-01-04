@@ -26,3 +26,7 @@ scroll-behavior: smooth;
 
 }
 
+a[href^=tel]{
+  color:black;
+  text-decoration: none;
+}
