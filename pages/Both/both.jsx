@@ -1,7 +1,6 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useRef, useState} from "react";
 import Header from "../../components/header/header";
 import styles from "../../pages/Both/both.module.scss";
-
 import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
 import axios from "axios";
@@ -18,8 +17,8 @@ const both = () => {
   const appearButton = false;
   const [startClicked, setStartClicked] = useState(false);
   const selectedItems = [pool];
-  const [isDisabled , setIsDisabled] = useState(false);
   const [correct , setCorrect] = useState([]); 
+  const isDisabled = useRef(null);
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -158,17 +157,19 @@ const both = () => {
                         answer = e.target.value.toLowerCase();
                         if (answer === question.good_answer) {
                         setCorrect([...correct , question.pk])
-                        setIsDisabled(true);
-                             
+                      
+                        }
+
+                        else{
+                          
                         }
                      
                       }}
                       key={question.pk}
                       className={correct.includes(question.pk) ? styles.inputCorrect : styles.input}
                       spellCheck="false"
-                      disabled = {isDisabled}
                       type="text"
-                      id="answer"
+                      ref={isDisabled}
                       autoComplete="off"
                     ></input>
                   </div>
