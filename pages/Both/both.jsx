@@ -5,7 +5,6 @@ import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
 import axios from "axios";
 import OptionButton from "../../components/OptionButton/OptionButton";
-import clsx from "clsx";
 
 const both = () => {
   
@@ -13,6 +12,7 @@ const both = () => {
   const [firstQuestionPool, setFirstQuestionPool] = useState([]);
   const [secondQuestionPool, setSecondQuestionPool] = useState([]);
   const [thirdQuestionPool, setThirdQuestionPool] = useState([]);
+  const [showFinishButton , setShowFinishButton] = useState(false);
   const [pool, setPool] = useState([]);
   const appearButton = false;
   const [startClicked, setStartClicked] = useState(false);
@@ -28,12 +28,11 @@ const both = () => {
 
   useEffect(() => {
     getProducts({});
-    
-    
+  
   }, [, startClicked]);
 
   {
-    if (firstQuestionPool != 0 || secondQuestionPool!= 0 || thirdQuestionPool != 0) {
+    if (firstQuestionPool.length > 0  || secondQuestionPool.length > 0 || thirdQuestionPool.length > 0) {
       appearButton = true;
     }
   }
@@ -57,6 +56,8 @@ const both = () => {
             select all kana where you'll be able to quiz yourself from literally
             everything (except for kanji).
           </Header>
+
+          
 
           <div
             className={
@@ -121,6 +122,7 @@ const both = () => {
               />
             </div>
           </div>
+          
 
           <div
             className={
@@ -155,11 +157,17 @@ const both = () => {
                       onChange={(e) => {
                         const answer = "";
                         answer = e.target.value.toLowerCase();
+                       
+                        if(answer.length > 0){
+                          setShowFinishButton(true)
+                          console.log(showFinishButton)
+                        }
                         if (answer === question.good_answer) {
                         setCorrect([...correct , question.pk])
-                      
+                       
                         }
 
+                      
                         else{
                           
                         }
@@ -177,16 +185,26 @@ const both = () => {
                 
               })}
           </div>
+          <button
+              
+              className={showFinishButton ? styles.button : styles.buttonDsp}
+            >
+              Finish
+            </button>
+
 
           <div
-            className={clsx(startClicked ? styles.flexboxDissapeared : null)}
+            className={startClicked ? styles.flexboxDissapeared : null}
           >
             <button
               onClick={StartGame}
-              className={clsx(appearButton ? styles.button : styles.buttonDsp)}
+              className={appearButton ? styles.button : styles.buttonDsp}
             >
               Start!
             </button>
+
+         
+        
           </div>
         </Layout>
       </React.StrictMode>
