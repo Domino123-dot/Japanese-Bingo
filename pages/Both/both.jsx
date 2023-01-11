@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../components/header/header";
 import styles from "../../pages/Both/both.module.scss";
 import Layout from "../../components/layout/layout";
@@ -7,45 +7,50 @@ import axios from "axios";
 import OptionButton from "../../components/OptionButton/OptionButton";
 
 const both = () => {
-  
   const [questions, setQuestions] = useState([]);
   const [firstQuestionPool, setFirstQuestionPool] = useState([]);
   const [secondQuestionPool, setSecondQuestionPool] = useState([]);
   const [thirdQuestionPool, setThirdQuestionPool] = useState([]);
-  const [showFinishButton , setShowFinishButton] = useState(false);
+  const [showFinishButton, setShowFinishButton] = useState(false);
   const [pool, setPool] = useState([]);
   const appearButton = false;
   const [startClicked, setStartClicked] = useState(false);
   const selectedItems = [pool];
-  const [correct , setCorrect] = useState([]); 
+  const [correct, setCorrect] = useState([]);
   const isDisabled = useRef(null);
+  const [correctCount , setCorrectCount] = useState(0);
+  const [overallQuestionAnswered , setOverallQuestionAnswered] = useState(0);
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
-      
     });
   };
 
   useEffect(() => {
     getProducts({});
-  
   }, [, startClicked]);
 
   {
-    if (firstQuestionPool.length > 0  || secondQuestionPool.length > 0 || thirdQuestionPool.length > 0) {
+    if (
+      firstQuestionPool.length > 0 ||
+      secondQuestionPool.length > 0 ||
+      thirdQuestionPool.length > 0
+    ) {
       appearButton = true;
     }
   }
 
   function StartGame() {
-    setPool((pool) => [...pool, ...firstQuestionPool, ...secondQuestionPool, ...thirdQuestionPool]);
+    setPool((pool) => [
+      ...pool,
+      ...firstQuestionPool,
+      ...secondQuestionPool,
+      ...thirdQuestionPool,
+    ]);
     setStartClicked(true);
-    
   }
 
- 
   return (
-    
     <>
       <React.StrictMode>
         <Backbutton />
@@ -56,8 +61,6 @@ const both = () => {
             select all kana where you'll be able to quiz yourself from literally
             everything (except for kanji).
           </Header>
-
-          
 
           <div
             className={
@@ -122,89 +125,79 @@ const both = () => {
               />
             </div>
           </div>
-          
 
           <div
             className={
               startClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
             }
-            
           >
-            
-            {
-            questions
-            
+            {questions
+
               .filter(
-                
                 (question) =>
-                
-                  pool.includes(question.category) && question.is_active === true
+                  pool.includes(question.category) &&
+                  question.is_active === true
               )
-              
 
               .map((question) => {
-              
-             return(
+                return (
                   <div
                     key={question.pk}
-                    className={correct.includes(question.pk) ? styles.menuCorrect : styles.menu}
-                  
+                    className={
+                      correct.includes(question.pk)
+                        ? styles.menuCorrect
+                        : styles.menu
+                    }
                   >
                     {question.question}
-                
-                    
+
                     <input
                       onChange={(e) => {
                         const answer = "";
                         answer = e.target.value.toLowerCase();
-                       
-                        if(answer.length > 0){
-                          setShowFinishButton(true)
-                          console.log(showFinishButton)
-                        }
-                        if (answer === question.good_answer) {
-                        setCorrect([...correct , question.pk])
-                       
-                        }
 
-                      
-                        else{
+                        if (answer.length > 0) {
+                          setShowFinishButton(true);
                           
                         }
-                     
+                        if (answer === question.good_answer) {
+                          setCorrect([...correct, question.pk]);
+                          setCorrectCount(correctCount + 1);
+                          setOverallQuestionAnswered(overallQuestionAnswered + 1);
+                         
+                          
+
+                        }
+
                       }}
                       key={question.pk}
-                      className={correct.includes(question.pk) ? styles.inputCorrect : styles.input}
+                      className={
+                        correct.includes(question.pk)
+                          ? styles.inputCorrect
+                          : styles.input
+                      }
                       spellCheck="false"
                       type="text"
-                      ref={isDisabled}
                       autoComplete="off"
+                      disabled = {correct.includes(question.pk) ? true : false}
                     ></input>
                   </div>
-             )
-                
+                );
               })}
           </div>
           <button
-              
-              className={showFinishButton ? styles.button : styles.buttonDsp}
-            >
-              Finish
-            </button>
-
-
-          <div
-            className={startClicked ? styles.flexboxDissapeared : null}
+            className={showFinishButton ? styles.button : styles.buttonDsp}
           >
+            Finish
+          </button>
+
+          <div className={startClicked ? styles.flexboxDissapeared : null}>
             <button
               onClick={StartGame}
               className={appearButton ? styles.button : styles.buttonDsp}
             >
               Start!
             </button>
-
-         
-        
           </div>
         </Layout>
       </React.StrictMode>
