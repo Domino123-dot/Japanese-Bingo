@@ -16,10 +16,11 @@ const both = () => {
   const appearButton = false;
   const [startClicked, setStartClicked] = useState(false);
   const selectedItems = [pool];
-  const [correct, setCorrect] = useState([]);
+  const [correctAnswer, setCorrectAnswer] = useState([]);
+  const [wrongAnswer, setWrongAnswer] = useState([]);
   const isDisabled = useRef(null);
-  const [correctCount , setCorrectCount] = useState(0);
-  const [overallQuestionAnswered , setOverallQuestionAnswered] = useState(0);
+  const [correctAnswerPoints , setCorrectAnswerPoints] = useState(1);
+  const [maxPointsToGet, setMaxPointsToGet] = useState(1);
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -40,6 +41,13 @@ const both = () => {
     }
   }
 
+  function OverallPointsToGet(){
+    if(true){
+      setMaxPointsToGet(maxPointsToGet + 1) ;
+    }
+
+  }
+
   function StartGame() {
     setPool((pool) => [
       ...pool,
@@ -48,6 +56,14 @@ const both = () => {
       ...thirdQuestionPool,
     ]);
     setStartClicked(true);
+  }
+
+  function FinishGame() {
+    const result = 0;
+
+    result = (correctAnswerPoints/ maxPointsToGet) * 100;
+
+    console.log(result);
   }
 
   return (
@@ -140,46 +156,57 @@ const both = () => {
               )
 
               .map((question) => {
+                {OverallPointsToGet
+                console.log(maxPointsToGet)}
+
+
                 return (
                   <div
+                    
                     key={question.pk}
                     className={
-                      correct.includes(question.pk)
+                      correctAnswer.includes(question.pk)
                         ? styles.menuCorrect
-                        : styles.menu
+                        : wrongAnswer.includes(question.pk) ? styles.menuWrong : styles.menu
                     }
                   >
                     {question.question}
 
                     <input
-                      onChange={(e) => {
+                  
+                      onBlur={(e) => {
                         const answer = "";
                         answer = e.target.value.toLowerCase();
+                     
 
                         if (answer.length > 0) {
                           setShowFinishButton(true);
-                          
-                        }
-                        if (answer === question.good_answer) {
-                          setCorrect([...correct, question.pk]);
-                          setCorrectCount(correctCount + 1);
-                          setOverallQuestionAnswered(overallQuestionAnswered + 1);
-                         
-                          
 
-                        }
+                          if (answer === question.good_answer) {
+                            setCorrectAnswer([...correctAnswer, question.pk]);
+                            setCorrectAnswerPoints(correctAnswerPoints +1)
 
+                          
+                          }
+
+                          else if (answer != question.good_answer){
+
+                            setWrongAnswer([...wrongAnswer , question.pk]);
+
+
+                          }
+                        }
                       }}
                       key={question.pk}
                       className={
-                        correct.includes(question.pk)
+                        correctAnswer.includes(question.pk)
                           ? styles.inputCorrect
-                          : styles.input
+                          : wrongAnswer.includes(question.pk) ? styles.inputWrong : styles.input
                       }
                       spellCheck="false"
                       type="text"
                       autoComplete="off"
-                      disabled = {correct.includes(question.pk) ? true : false}
+                      disabled={correctAnswer.includes(question.pk) ? true : false}
                     ></input>
                   </div>
                 );
@@ -187,6 +214,7 @@ const both = () => {
           </div>
           <button
             className={showFinishButton ? styles.button : styles.buttonDsp}
+            onClick={FinishGame}
           >
             Finish
           </button>

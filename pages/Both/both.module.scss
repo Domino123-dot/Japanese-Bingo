@@ -82,6 +82,7 @@
   font-weight: bold;
   width: 15%;
   margin-bottom: 3%;
+  transition: 1.5s;
   margin-left: 3%;
 }
 
@@ -97,6 +98,23 @@
   width: 15%;
   margin-bottom: 3%;
   margin-left: 3%;
+  transition: 1.5s;
+}
+
+.menuWrong {
+  animation: shake 0.62s cubic-bezier(.36,.07,.19,.97) both;
+  font-size: 55px;
+  border-radius: 10px;
+  height: 160px;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgb(167, 0, 0);
+  color: rgb(255, 83, 83);
+  font-weight: bold;
+  width: 15%;
+  margin-bottom: 3%;
+  margin-left: 3%;
+  transition: 1.5s;
 }
 .input {
   outline: none;
@@ -112,7 +130,7 @@
   transition: 1.5s;
   &:focus {
     background-color: #939393;
-    transition: 1s;
+    transition: 1.5s;
   }
 
  
@@ -134,3 +152,40 @@
 
 
 }
+
+.inputWrong{
+  outline: none;
+  width: 80%;
+  height: 30%;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 25px;
+  text-decoration: none;
+  border: none;
+  caret-color: transparent;
+  transition: 1.5s;
+  background-color: rgb(255, 83, 83);
+  color:#0000007f;
+
+
+}
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+//shake animation I borrowed from css-tricks.com
