@@ -19,8 +19,10 @@ const both = () => {
   const [correctAnswer, setCorrectAnswer] = useState([]);
   const [wrongAnswer, setWrongAnswer] = useState([]);
   const isDisabled = useRef(null);
-  const [correctAnswerPoints , setCorrectAnswerPoints] = useState(1);
-  const [maxPointsToGet, setMaxPointsToGet] = useState(1);
+  const [correctAnswerPoints, setCorrectAnswerPoints] = useState(1);
+  const [maxPoints, setMaxPoints] = useState(1);
+  const [finishGame , setFinishGame] = useState(false);
+
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -29,7 +31,8 @@ const both = () => {
 
   useEffect(() => {
     getProducts({});
-  }, [, startClicked]);
+
+  }, [startClicked]);
 
   {
     if (
@@ -39,13 +42,6 @@ const both = () => {
     ) {
       appearButton = true;
     }
-  }
-
-  function OverallPointsToGet(){
-    if(true){
-      setMaxPointsToGet(maxPointsToGet + 1) ;
-    }
-
   }
 
   function StartGame() {
@@ -59,18 +55,19 @@ const both = () => {
   }
 
   function FinishGame() {
-    const result = 0;
 
-    result = (correctAnswerPoints/ maxPointsToGet) * 100;
+    setFinishGame(true);
+    console.log(finishGame)
 
-    console.log(result);
   }
 
   return (
     <>
       <React.StrictMode>
-        <Backbutton />
+ 
+
         <Layout>
+        <Backbutton />
           <Header title="Practice kana">
             In this section you can practice your kana knowlege, you can choose
             between japanese hiragana, katakana their combinations or you can
@@ -78,11 +75,14 @@ const both = () => {
             everything (except for kanji).
           </Header>
 
+          
+
           <div
             className={
               startClicked ? styles.flexboxDissapeared : styles.flexbox
             }
           >
+            
             <div className={styles.kanas}>
               <h1>Main Kana</h1>
               <OptionButton
@@ -90,15 +90,51 @@ const both = () => {
                   setFirstQuestionPool(values);
                 }}
                 options={[
-                  { text: "a i u e o | あ い う え お", value: "a/" },
-                  { text: "ka ki ku ko | か き く こ", value: "ka/" },
-                  { text: "sa shi su se so | さ し す せ そ", value: "sa/" },
-                  { text: " na ni nu ne no | な に ぬ ね の", value: "na/" },
-                  { text: "ha hi fu he ho | は ひ ふ へ ほ", value: "ha/" },
-                  { text: "ma mi mu me mo | ま み む め も", value: "ma/" },
-                  { text: "ya yu yo | や ゆ よ", value: "ya/" },
-                  { text: "ra ri ru re ro | ら り る れ ろ", value: "ra/" },
-                  { text: "wa wo n | わ を ん", value: "wa/" },
+                  {
+                    text: "a i u e o | あ い う え お",
+                    value: "a/",
+                    maxPointsToGet: 5,
+                  },
+                  {
+                    text: "ka ki ku ko | か き く こ",
+                    value: "ka/",
+                    maxPointsToGet: 4,
+                  },
+                  {
+                    text: "sa shi su se so | さ し す せ そ",
+                    value: "sa/",
+                    maxPointsToGet: 5,
+                  },
+                  {
+                    text: " na ni nu ne no | な に ぬ ね の",
+                    value: "na/",
+                    maxPointsToGet: 5,
+                  },
+                  {
+                    text: "ha hi fu he ho | は ひ ふ へ ほ",
+                    value: "ha/",
+                    maxPointsToGet: 5,
+                  },
+                  {
+                    text: "ma mi mu me mo | ま み む め も",
+                    value: "ma/",
+                    maxPointsToGet: 5,
+                  },
+                  {
+                    text: "ya yu yo | や ゆ よ",
+                    value: "ya/",
+                    maxPointsToGet: 3,
+                  },
+                  {
+                    text: "ra ri ru re ro | ら り る れ ろ",
+                    value: "ra/",
+                    maxPointsToGet: 5,
+                  },
+                  {
+                    text: "wa wo n | わ を ん",
+                    value: "wa/",
+                    maxPointsToGet: 3,
+                  },
                 ]}
               />
             </div>
@@ -110,11 +146,31 @@ const both = () => {
                   setSecondQuestionPool(values);
                 }}
                 options={[
-                  { text: "ga gi gu ge go | が ぎ ぐ げ ご", value: "ga/" },
-                  { text: "za ji zu ze zo | ざ じ ず ぜ ぞ", value: "za/" },
-                  { text: "da ji zu de do | だ じ で ど", value: "da/" },
-                  { text: "ba bi bu be bo | ば び ぶ べ ぼ", value: "ba/" },
-                  { text: "pa pi pu pe po | ぱ ぴ ぷ ぺ ぽ", value: "pa/" },
+                  {
+                    text: "ga gi gu ge go | が ぎ ぐ げ ご",
+                    value: "ga/",
+                    maxPointsToGet: 5,
+                  },
+                  {
+                    text: "za ji zu ze zo | ざ じ ず ぜ ぞ",
+                    value: "za/",
+                    maxPointsToGet: 5,
+                  },
+                  {
+                    text: "da ji zu de do | だ じ で ど",
+                    value: "da/",
+                    maxPointsToGet: 4,
+                  },
+                  {
+                    text: "ba bi bu be bo | ば び ぶ べ ぼ",
+                    value: "ba/",
+                    maxPointsToGet: 5,
+                  },
+                  {
+                    text: "pa pi pu pe po | ぱ ぴ ぷ ぺ ぽ",
+                    value: "pa/",
+                    maxPointsToGet: 5,
+                  },
                 ]}
               />
             </div>
@@ -125,18 +181,18 @@ const both = () => {
                   setThirdQuestionPool(values);
                 }}
                 options={[
-                  { text: "kya | きゃ", value: "kya/" },
-                  { text: "cha | ちゃ", value: "cha/" },
-                  { text: "hya |ひゃ", value: "hya/" },
-                  { text: "rya |りゃ", value: "rya/" },
-                  { text: "ja |じゃ", value: "ja/" },
-                  { text: "bya |びゃ", value: "bya/" },
-                  { text: "sha |しゃ", value: "sha/" },
-                  { text: "nya |にゃ", value: "nya/" },
-                  { text: "mya |みゃ", value: "mya/" },
-                  { text: "gya |ぎゃ", value: "gya/" },
-                  { text: "dya |ぢゃ", value: "dya/" },
-                  { text: "pya |ぴゃ", value: "pya/" },
+                  { text: "kya | きゃ", value: "kya/", maxPointsToGet: 3 },
+                  { text: "cha | ちゃ", value: "cha/", maxPointsToGet: 3 },
+                  { text: "hya |ひゃ", value: "hya/", maxPointsToGet: 3 },
+                  { text: "rya |りゃ", value: "rya/", maxPointsToGet: 3 },
+                  { text: "ja |じゃ", value: "ja/", maxPointsToGet: 3 },
+                  { text: "bya |びゃ", value: "bya/", maxPointsToGet: 3 },
+                  { text: "sha |しゃ", value: "sha/", maxPointsToGet: 3 },
+                  { text: "nya |にゃ", value: "nya/", maxPointsToGet: 3 },
+                  { text: "mya |みゃ", value: "mya/", maxPointsToGet: 3 },
+                  { text: "gya |ぎゃ", value: "gya/", maxPointsToGet: 3 },
+                  { text: "dya |ぢゃ", value: "dya/", maxPointsToGet: 3 },
+                  { text: "pya |ぴゃ", value: "pya/", maxPointsToGet: 3 },
                 ]}
               />
             </div>
@@ -147,6 +203,9 @@ const both = () => {
               startClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
             }
           >
+            <div className={finishGame ? styles.blurAppear : styles.blurDsp}></div>
+              <div className={finishGame ? styles.finishBoxAppear : styles.finishBoxDsp}>TEST</div>
+
             {questions
 
               .filter(
@@ -156,44 +215,33 @@ const both = () => {
               )
 
               .map((question) => {
-                {OverallPointsToGet
-                console.log(maxPointsToGet)}
-
-
+             
                 return (
                   <div
-                    
                     key={question.pk}
                     className={
                       correctAnswer.includes(question.pk)
                         ? styles.menuCorrect
-                        : wrongAnswer.includes(question.pk) ? styles.menuWrong : styles.menu
+                        : wrongAnswer.includes(question.pk)
+                        ? styles.menuWrong
+                        : styles.menu
                     }
                   >
                     {question.question}
 
                     <input
-                  
                       onBlur={(e) => {
                         const answer = "";
                         answer = e.target.value.toLowerCase();
-                     
 
                         if (answer.length > 0) {
                           setShowFinishButton(true);
 
                           if (answer === question.good_answer) {
                             setCorrectAnswer([...correctAnswer, question.pk]);
-                            setCorrectAnswerPoints(correctAnswerPoints +1)
-
-                          
-                          }
-
-                          else if (answer != question.good_answer){
-
-                            setWrongAnswer([...wrongAnswer , question.pk]);
-
-
+                            setCorrectAnswerPoints(correctAnswerPoints + 1);
+                          } else if (answer != question.good_answer) {
+                            setWrongAnswer([...wrongAnswer, question.pk]);
                           }
                         }
                       }}
@@ -201,12 +249,16 @@ const both = () => {
                       className={
                         correctAnswer.includes(question.pk)
                           ? styles.inputCorrect
-                          : wrongAnswer.includes(question.pk) ? styles.inputWrong : styles.input
+                          : wrongAnswer.includes(question.pk)
+                          ? styles.inputWrong
+                          : styles.input
                       }
                       spellCheck="false"
                       type="text"
                       autoComplete="off"
-                      disabled={correctAnswer.includes(question.pk) ? true : false}
+                      disabled={
+                        correctAnswer.includes(question.pk) ? true : false
+                      }
                     ></input>
                   </div>
                 );

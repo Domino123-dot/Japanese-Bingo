@@ -15,6 +15,45 @@
   text-align: center;
 }
 
+.finishBoxAppear {
+  z-index: 99; //set to be on top of every div no matter what.
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  text-align: center;
+  visibility: visible;
+
+}
+
+
+.finishBoxDsp {
+  visibility: hidden;
+  position: fixed;
+}
+
+.blurAppear{
+  z-index: 98; 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  visibility: visible;
+  bottom: 0px;
+ filter:blur(10px);
+
+}
+.blurDsp{
+  z-index: 98; 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  text-align: center;
+  visibility: hidden;
+  filter:blur(10px);
+}
+
 .button {
   margin-top: 5rem;
   width: 30%;
@@ -23,7 +62,7 @@
   border-radius: 10px;
   border: 4px solid gray;
   background-color: inherit;
-  color:black;
+  color: black;
   text-decoration: none;
   text-align: center;
   font-weight: bold;
@@ -68,7 +107,6 @@
   .menu {
     flex: 1 0 30%;
   }
-
 }
 
 .menu {
@@ -102,13 +140,13 @@
 }
 
 .menuWrong {
-  animation: shake 0.62s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.62s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   font-size: 55px;
   border-radius: 10px;
   height: 160px;
   text-align: center;
   text-decoration: none;
-  background-color: rgb(167, 0, 0);
+  background-color: #c91508;
   color: rgb(255, 83, 83);
   font-weight: bold;
   width: 15%;
@@ -132,11 +170,9 @@
     background-color: #939393;
     transition: 1.5s;
   }
-
- 
 }
 
-.inputCorrect{
+.inputCorrect {
   outline: none;
   width: 80%;
   height: 30%;
@@ -148,12 +184,10 @@
   caret-color: transparent;
   transition: 1.5s;
   background-color: rgb(102, 255, 0);
-  color:#0000007f;
-
-
+  color: #0000007f;
 }
 
-.inputWrong{
+.inputWrong {
   outline: none;
   width: 80%;
   height: 30%;
@@ -165,26 +199,30 @@
   caret-color: transparent;
   transition: 1.5s;
   background-color: rgb(255, 83, 83);
-  color:#0000007f;
-
-
+  color: #0000007f;
 }
 
 
+
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: translate3d(-1px, 0, 0);
   }
-  
-  20%, 80% {
+
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
 
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: translate3d(-4px, 0, 0);
   }
 
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(4px, 0, 0);
   }
 }
