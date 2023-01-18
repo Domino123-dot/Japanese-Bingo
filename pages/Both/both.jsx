@@ -204,7 +204,18 @@ const both = () => {
             }
           >
             <div className={finishGame ? styles.blurAppear : styles.blurDsp}></div>
-              <div className={finishGame ? styles.finishBoxAppear : styles.finishBoxDsp}>TEST</div>
+              <div className={finishGame ? styles.finishBoxAppear : styles.finishBoxDsp}>
+
+              <div className={styles.header}>Congratulations!</div>
+              <div className={styles.bottomText}>You got x out of x questions!</div>
+              <div className={styles.bottomText}>Which is a score of x%</div>
+
+              <button className={styles.buttonFinish}>Try again</button>
+              <button className={styles.buttonFinish}>Back</button>
+
+
+
+              </div>
 
             {questions
 
