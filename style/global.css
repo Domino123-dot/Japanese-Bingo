@@ -3,6 +3,7 @@
   font-style: normal;
   font-weight: 400;
   src: url(/fonts/Viga/Viga-Regular.ttf);
+  font-display: swap;
 }
 
 @font-face {
@@ -10,12 +11,13 @@
   font-style: normal;
   font-weight: 400;
   src: url(/fonts/Poiret_One/PoiretOne-Regular.ttf);
+  font-display: swap;
 }
+
 
 body {    
   background-color: #b5b19e; 
   font-family: "Poiret One";
-  /*font-family: 'Poiret One';*/
 }
 * {
   box-sizing: border-box;
