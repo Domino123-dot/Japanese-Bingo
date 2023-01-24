@@ -5,7 +5,7 @@ import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
 import axios from "axios";
 import OptionButton from "../../components/OptionButton/OptionButton";
-
+import Button from "../../components/button/button";
 const both = () => {
   const [questions, setQuestions] = useState([]);
   const [firstQuestionPool, setFirstQuestionPool] = useState([]);
@@ -21,7 +21,7 @@ const both = () => {
   const isDisabled = useRef(null);
   const [correctAnswerPoints, setCorrectAnswerPoints] = useState(1);
   const [maxPoints, setMaxPoints] = useState(1);
-  const [finishGame , setFinishGame] = useState(false);
+  const [finishGame, setFinishGame] = useState(false);
 
   const getProducts = () => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
@@ -31,7 +31,6 @@ const both = () => {
 
   useEffect(() => {
     getProducts({});
-
   }, [startClicked]);
 
   {
@@ -55,19 +54,15 @@ const both = () => {
   }
 
   function FinishGame() {
-
     setFinishGame(true);
-    console.log(finishGame)
-
+    console.log(finishGame);
   }
 
   return (
     <>
       <React.StrictMode>
- 
-
         <Layout>
-        <Backbutton />
+          <Backbutton />
           <Header title="Practice kana">
             In this section you can practice your kana knowlege, you can choose
             between japanese hiragana, katakana their combinations or you can
@@ -75,14 +70,11 @@ const both = () => {
             everything (except for kanji).
           </Header>
 
-          
-
           <div
             className={
               startClicked ? styles.flexboxDissapeared : styles.flexbox
             }
           >
-            
             <div className={styles.kanas}>
               <h1>Main Kana</h1>
               <OptionButton
@@ -203,19 +195,24 @@ const both = () => {
               startClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
             }
           >
-            <div className={finishGame ? styles.blurAppear : styles.blurDsp}></div>
-              <div className={finishGame ? styles.finishBoxAppear : styles.finishBoxDsp}>
-
-              <div className={styles.header}>Congratulations!</div>
-              <div className={styles.bottomText}>You got x out of x questions!</div>
-              <div className={styles.bottomText}>Which is a score of x%</div>
-
-              <button className={styles.buttonFinish}>Try again</button>
-              <button className={styles.buttonFinish}>Back</button>
-
-
-
+            <div
+              className={finishGame ? styles.blurAppear : styles.blurDsp}
+            ></div>
+            <div
+              className={
+                finishGame ? styles.finishBoxAppear : styles.finishBoxDsp
+              }
+            >
+              <div className={styles.header}>Congratulations</div>
+              <div className={styles.bottomText}>
+                You got x out of x questions! <br />
+                Your score : x%
               </div>
+
+              <Button href="/" style={styles.buttonFinish}>
+                Back
+              </Button>
+            </div>
 
             {questions
 
@@ -226,7 +223,6 @@ const both = () => {
               )
 
               .map((question) => {
-             
                 return (
                   <div
                     key={question.pk}
