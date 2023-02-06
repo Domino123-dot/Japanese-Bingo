@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/header/header";
 import styles from "../../pages/Both/both.module.scss";
 import Layout from "../../components/layout/layout";
@@ -6,80 +6,58 @@ import Backbutton from "../../components/backButton/Backbutton";
 import axios from "axios";
 import OptionButton from "../../components/OptionButton/OptionButton";
 import Button from "../../components/button/button";
-const both = () => {
-  const [questions, setQuestions] = useState([]);
+
+const States ={
+  init : "init",
+  progress : "progress",
+  finished : "finished",
+}
+
+const SumbitQuiz = ({maxPointsToGet, pointsPlayerGot , score}) =>{
+
+
+
+  return(
+    <>
+  <div className={styles.blurAppear} />
+<div className={styles.finishBoxAppear}>
+  <div className={styles.header}>Congratulations</div>
+  <div className={styles.bottomText}>
+    You got {pointsPlayerGot} out of {maxPointsToGet} questions! <br />
+    Your score : {score}%
+  </div>
+
+  <Button href="/" style={styles.buttonFinish}>
+    Back
+  </Button>
+</div>
+</>
+  )
+
+
+}
+
+const QuestionSelect = ({questions}) =>{
+
   const [firstQuestionPool, setFirstQuestionPool] = useState([]);
   const [secondQuestionPool, setSecondQuestionPool] = useState([]);
   const [thirdQuestionPool, setThirdQuestionPool] = useState([]);
-  const [showFinishButton, setShowFinishButton] = useState(false);
   const [pool, setPool] = useState([]);
-  const appearButton = false;
-  const [startClicked, setStartClicked] = useState(false);
-  const selectedItems = [pool];
-  const [correctAnswer, setCorrectAnswer] = useState([]);
-  const [wrongAnswer, setWrongAnswer] = useState([]);
-  const isDisabled = useRef(null);
-  const [correctAnswerPoints, setCorrectAnswerPoints] = useState(1);
-  const [maxPoints, setMaxPoints] = useState(1);
-  const [finishGame, setFinishGame] = useState(false);
+  const appearButton = (firstQuestionPool.length + secondQuestionPool.length  + thirdQuestionPool.length) > 0;
 
-  const getProducts = () => {
-    axios.get("http://localhost:8000/api/questions").then((response) => {
-      setQuestions(response.data);
-    });
-  };
+  useEffect(()=>{
+    setPool([...firstQuestionPool , ...secondQuestionPool , ...thirdQuestionPool])
+  },[firstQuestionPool , secondQuestionPool , thirdQuestionPool])
 
-  useEffect(() => {
-    getProducts({});
-  }, [startClicked]);
+  return(
 
-  {
-    if (
-      firstQuestionPool.length > 0 ||
-      secondQuestionPool.length > 0 ||
-      thirdQuestionPool.length > 0
-    ) {
-      appearButton = true;
-    }
-  }
-
-  function StartGame() {
-    setPool((pool) => [
-      ...pool,
-      ...firstQuestionPool,
-      ...secondQuestionPool,
-      ...thirdQuestionPool,
-    ]);
-    setStartClicked(true);
-  }
-
-  function FinishGame() {
-    setFinishGame(true);
-    console.log(finishGame);
-  }
-
-  return (
-    <>
-      <React.StrictMode>
-        <Layout>
-          <Backbutton />
-          <Header title="Practice kana">
-            In this section you can practice your kana knowlege, you can choose
-            between japanese hiragana, katakana their combinations or you can
-            select all kana where you'll be able to quiz yourself from literally
-            everything (except for kanji).
-          </Header>
-
-          <div
-            className={
-              startClicked ? styles.flexboxDissapeared : styles.flexbox
-            }
-          >
+  <div className={styles.flexbox}>
             <div className={styles.kanas}>
               <h1>Main Kana</h1>
               <OptionButton
                 onChange={(values) => {
-                  setFirstQuestionPool(values);
+              setFirstQuestionPool(values);
+            
                 }}
                 options={[
                   {
@@ -171,6 +149,7 @@ const both = () => {
               <OptionButton
                 onChange={(values) => {
                   setThirdQuestionPool(values);
+
                 }}
                 options={[
                   { text: "kya | きゃ", value: "kya/", maxPointsToGet: 3 },
@@ -187,105 +166,150 @@ const both = () => {
                   { text: "pya |ぴゃ", value: "pya/", maxPointsToGet: 3 },
                 ]}
               />
-            </div>
-          </div>
-
-          <div
-            className={
-              startClicked ? styles.QuizFlexbox : styles.flexboxDissapeared
-            }
-          >
-            <div
-              className={finishGame ? styles.blurAppear : styles.blurDsp}
-            ></div>
-            <div
-              className={
-                finishGame ? styles.finishBoxAppear : styles.finishBoxDsp
-              }
-            >
-              <div className={styles.header}>Congratulations</div>
-              <div className={styles.bottomText}>
-                You got x out of x questions! <br />
-                Your score : x%
-              </div>
-
-              <Button href="/" style={styles.buttonFinish}>
-                Back
-              </Button>
-            </div>
-
-            {questions
-
-              .filter(
-                (question) =>
-                  pool.includes(question.category) &&
-                  question.is_active === true
-              )
-
-              .map((question) => {
-                return (
-                  <div
-                    key={question.pk}
-                    className={
-                      correctAnswer.includes(question.pk)
-                        ? styles.menuCorrect
-                        : wrongAnswer.includes(question.pk)
-                        ? styles.menuWrong
-                        : styles.menu
-                    }
-                  >
-                    {question.question}
-
-                    <input
-                      onBlur={(e) => {
-                        const answer = "";
-                        answer = e.target.value.toLowerCase();
-
-                        if (answer.length > 0) {
-                          setShowFinishButton(true);
-
-                          if (answer === question.good_answer) {
-                            setCorrectAnswer([...correctAnswer, question.pk]);
-                            setCorrectAnswerPoints(correctAnswerPoints + 1);
-                          } else if (answer != question.good_answer) {
-                            setWrongAnswer([...wrongAnswer, question.pk]);
-                          }
-                        }
-                      }}
-                      key={question.pk}
-                      className={
-                        correctAnswer.includes(question.pk)
-                          ? styles.inputCorrect
-                          : wrongAnswer.includes(question.pk)
-                          ? styles.inputWrong
-                          : styles.input
-                      }
-                      spellCheck="false"
-                      type="text"
-                      autoComplete="off"
-                      disabled={
-                        correctAnswer.includes(question.pk) ? true : false
-                      }
-                    ></input>
-                  </div>
-                );
-              })}
-          </div>
-          <button
-            className={showFinishButton ? styles.button : styles.buttonDsp}
-            onClick={FinishGame}
-          >
-            Finish
-          </button>
-
-          <div className={startClicked ? styles.flexboxDissapeared : null}>
+               <div className={appearButton ? styles.flexbox : styles.flexboxDissapeared}>
             <button
-              onClick={StartGame}
-              className={appearButton ? styles.button : styles.buttonDsp}
+              onClick={() => {questions(pool)
+              }}
+              className={styles.button}
             >
               Start!
             </button>
           </div>
+            </div>
+
+
+           
+          </div>
+
+          
+
+
+
+
+
+  )
+
+
+
+}
+
+const Quiz = ({questionsPool , questions}) =>{
+
+  const [correctAnswer, setCorrectAnswer] = useState([]);
+  const [wrongAnswer, setWrongAnswer] = useState([]);
+  const [correctAnswerPoints, setCorrectAnswerPoints] = useState(1);
+  return(
+    <>
+  <div className={styles.QuizFlexbox}>
+ 
+
+ 
+  {questions
+
+    .filter(
+      (question) =>
+        questionsPool.includes(question.category) &&
+        question.is_active === true
+    )
+
+    .map((question) => {
+      return (
+        <div
+          key={question.pk}
+          className={
+            correctAnswer.includes(question.pk)
+              ? styles.menuCorrect
+              : wrongAnswer.includes(question.pk)
+              ? styles.menuWrong
+              : styles.menu
+          }
+        >
+          {question.question}
+
+          <input
+            onBlur={(e) => {
+              const answer = "";
+              answer = e.target.value.toLowerCase();
+
+              if (answer.length > 0) {
+                setShowFinishButton(true);
+
+                if (answer === question.good_answer) {
+                  setCorrectAnswer([...correctAnswer, question.pk]);
+                  setCorrectAnswerPoints(correctAnswerPoints + 1);
+                } else if (answer != question.good_answer) {
+                  setWrongAnswer([...wrongAnswer, question.pk]);
+                }
+              }
+            }}
+            key={question.pk}
+            className={
+              correctAnswer.includes(question.pk)
+                ? styles.inputCorrect
+                : wrongAnswer.includes(question.pk)
+                ? styles.inputWrong
+                : styles.input
+            }
+            spellCheck="false"
+            type="text"
+            autoComplete="off"
+            disabled={
+              correctAnswer.includes(question.pk) ? true : false
+            }
+          ></input>
+        </div>
+      );
+    })}
+</div>
+</>)
+}
+
+
+
+const both = () => {
+  const [questions, setQuestions] = useState([]);
+  const [state , setState] = useState(States.init);
+  const [questionPool , setQuestionPool] = useState([]);
+  useEffect(()=>{
+    axios.get("http://localhost:8000/api/questions").then((response) => {
+      setQuestions(response.data);
+    });
+  }, [])
+
+
+  return (
+    <>
+      <React.StrictMode>
+        <Layout>
+          <Backbutton />
+          <Header title="Practice kana">
+            In this section you can practice your kana knowlege, you can choose
+            between japanese hiragana, katakana their combinations or you can
+            select all kana where you'll be able to quiz yourself from literally
+            everything (except for kanji).
+          </Header>
+
+          {state === States.init && (
+            <QuestionSelect questions={(values)=>{setQuestionPool(values)
+            setState(States.progress)}} />
+             ) }
+
+          
+
+         {state === States.progress && (
+          <Quiz  questionsPool={questionPool}
+          questions={questions}/>
+         )}
+       
+
+
+        
+              {state === States.finished && (
+          <SumbitQuiz
+          maxPointsToGet = {"x"}
+          pointsPlayerGot = {"x"}
+          score = {"x"} />
+             ) }
         </Layout>
       </React.StrictMode>
     </>
