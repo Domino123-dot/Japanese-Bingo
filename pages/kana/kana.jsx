@@ -4,6 +4,8 @@ import Button from "../../components/button/button";
 import styles from "../kana/kana.module.scss";
 import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
+import Icon from "../../components/icon/icon";
+import { faFaceTired } from "@fortawesome/free-solid-svg-icons";
 const kana = () => {
   return (
     <>
@@ -16,18 +18,17 @@ const kana = () => {
           everything (except for kanji).
         </Header>
 
-        <div className={styles.buttons}>
+        <div className={styles.flexbox}>
           <Button href="/Hiragana" style={styles.button}>
+            <Icon icon={faFaceTired} />
             Hiragana <br />
             （ひらがな）
           </Button>
           <Button href="/Katakana" style={styles.button}>
-            Katakana
-            <br /> （カタカナ）
+          Quess Kana (Intermediate)
           </Button>
           <Button href="/Both" style={styles.button}>
-            Hiragana and Katakana <br />
-            （ひらがなとカタカナ）
+           Quess Kana (Hard)
           </Button>
         </div>
       </Layout>
