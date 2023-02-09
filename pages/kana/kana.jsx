@@ -5,7 +5,7 @@ import styles from "../kana/kana.module.scss";
 import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
 import Icon from "../../components/icon/icon";
-import { faFaceTired } from "@fortawesome/free-solid-svg-icons";
+import { faEgg , faRotate , faIceCream } from "@fortawesome/free-solid-svg-icons";
 const kana = () => {
   return (
     <>
@@ -19,16 +19,19 @@ const kana = () => {
         </Header>
 
         <div className={styles.flexbox}>
+          
           <Button href="/Hiragana" style={styles.button}>
-            <Icon icon={faFaceTired} />
-            Hiragana <br />
-            （ひらがな）
+          
+          <div className={styles.icon}> <Icon icon={faEgg} style={styles.logo} /></div>
+            Newbie Friendly Quiz
           </Button>
           <Button href="/Katakana" style={styles.button}>
-          Quess Kana (Intermediate)
+          <div className={styles.icon}> <Icon icon={faRotate} style={styles.logo} /> </div>
+          Newbie Friendly Quiz (Reverse)
           </Button>
           <Button href="/Both" style={styles.button}>
-           Quess Kana (Hard)
+          <div className={styles.icon}> <Icon icon={faIceCream} style={styles.logo} /> </div>
+           Vanilla Kana Quiz
           </Button>
         </div>
       </Layout>

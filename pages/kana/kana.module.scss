@@ -7,10 +7,12 @@
 
 }
 
-.buttons {
-  text-align: center;
-  text-overflow: inherit;
-  font-size: 0.8rem;
+.icon{
+  color: white;
+  font-size: 2.5rem;
+  height: 2rem;
+  position: relative;
+  top:-35px;
 }
 
 .button {
@@ -20,19 +22,8 @@
   border-radius: 10px;
   height: 250px;
   width: 15%;
+  font-size: 1rem;
+  color: white;
 }
 
-@media all and (max-width: 1024px) {
-  .menuClicked {
-    width: 100%;
-  }
-  .buttons {
-    width: 100%;
-  }
-  .button {
-    width: 100%;
-    &:hover {
-      transform: scale(1);
-    }
-  }
-}
+
