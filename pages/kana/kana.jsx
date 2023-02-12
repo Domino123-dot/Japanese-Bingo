@@ -5,7 +5,8 @@ import styles from "../kana/kana.module.scss";
 import Layout from "../../components/layout/layout";
 import Backbutton from "../../components/backButton/Backbutton";
 import Icon from "../../components/icon/icon";
-import { faEgg , faRotate , faIceCream } from "@fortawesome/free-solid-svg-icons";
+import { faEgg, faRotate, faIceCream } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 const kana = () => {
   return (
     <>
@@ -19,19 +20,28 @@ const kana = () => {
         </Header>
 
         <div className={styles.flexbox}>
-          
           <Button href="/Hiragana" style={styles.button}>
-          
-          <div className={styles.icon}> <Icon icon={faEgg} style={styles.logo} /></div>
+            <div className={styles.icon}>
+              {" "}
+              <Icon icon={faEgg} />
+            </div>
             Newbie Friendly Quiz
-          </Button>
+          </Button>{" "}
+          <br />
           <Button href="/Katakana" style={styles.button}>
-          <div className={styles.icon}> <Icon icon={faRotate} style={styles.logo} /> </div>
-          Newbie Friendly Quiz (Reverse)
-          </Button>
+            <div className={styles.icon}>
+              {" "}
+              <Icon icon={faRotate} />{" "}
+            </div>
+            Friendly Quiz (Reverse)
+          </Button>{" "}
+          <br />
           <Button href="/Both" style={styles.button}>
-          <div className={styles.icon}> <Icon icon={faIceCream} style={styles.logo} /> </div>
-           Vanilla Kana Quiz
+            <div className={styles.icon}>
+              {" "}
+              <Icon icon={faIceCream} />{" "}
+            </div>
+            Vanilla Kana Quiz
           </Button>
         </div>
       </Layout>

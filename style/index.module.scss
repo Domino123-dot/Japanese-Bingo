@@ -26,22 +26,46 @@
   }
 }
 
+
+.flexbox {
+  display: flex;
+  gap: 2%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+
+.icon{
+  color: white;
+  font-size: 2.5rem;
+  height: 2rem;
+  position: relative;
+  top:-35px;
+}
 .button {
   animation: FadeInDelayed 3s;
-  font-size: large;
-  border: 4px solid gray;
-  color: black;
-  border-radius: 15px;
-  text-align: center;
+  background-color: #433a1f;
   text-decoration: none;
-  background-color: transparent;
-  transition: 1.5s;
-  margin-bottom: 10px;
-  width: 100%;
-  height: 100px;
-  &:hover {
-    transition: 1.5s;
-    border: 4px solid black;
+  border: none;
+  border-radius: 10px;
+  height: 250px;
+  width: 33%;
+  font-size: 1rem;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px 0px, rgba(0, 0, 0, 0.22) 0px 15px 12px 0px;
+  transition: 1.2s;
+
+&:hover{
+  transform: scale(1.05);
+  transition: 1.2s;
+
+}
+  &:focus{
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.335) ;
+    transform: scale(1.05);
+    transition: 1.2s;
   }
 }
 .header {

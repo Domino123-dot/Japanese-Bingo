@@ -3,6 +3,9 @@ import styles from "../style/index.module.scss";
 import Button from "../components/button/button";
 import Layout from "../components/layout/layout";
 import Line from "../components/line";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons";
+import { faComments } from "@fortawesome/free-regular-svg-icons";
+import Icon from "../components/icon/icon";
 export default function Home() {
 
   return (
@@ -18,13 +21,23 @@ export default function Home() {
         <h2>Welcome on my Japanese quiz project! On this website you'll be able to test your hiragana and Katakana knowlege! Feel free to give me a feedback and have fun!</h2>
       </div>
     </div>
-        <div className={styles.buttons}>
-          <Button style={styles.button} href="/kana">
-           <b>Practice kana</b>
-          </Button>
-          <button className={styles.button} href="/feedback">
-          Feedback :)
-          </button>
+    <div className={styles.flexbox}>
+          <Button href="/kana" style={styles.button}>
+            <div className={styles.icon}>
+              {" "}
+              <Icon icon={faLanguage} />
+            </div>
+          Kana Quiz Categories
+          </Button>{" "}
+          <br />
+          <Button href="/Katakana" style={styles.button}>
+            <div className={styles.icon}>
+              {" "}
+              <Icon icon={faComments} />{" "}
+            </div>
+           I'd enjoy your feedback!
+          </Button>{" "}
+          
         </div>
       </Layout>
 
