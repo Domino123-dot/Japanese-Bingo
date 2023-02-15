@@ -15,10 +15,7 @@
   text-decoration: none;
   color: black;
   transition: 1.5s;
-  &:hover {
-    color: white;
-    transition: 1.5s;
-  }
+
 }
 
 .icons {
@@ -29,20 +26,20 @@
 
 .hiddenFooter {
   font-size: 30px;
-  visibility: hidden;
+  display: none;
   color: black;
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1163px) {
   .footer {
-    visibility: hidden;
+    display: none;
   }
   .text {
     font-size: 25px;
     
   }
 .hiddenFooter{
-visibility:visible;
+display: block;
 }
   .icons {
     margin-right: 0.5rem;

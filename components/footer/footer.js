@@ -33,6 +33,8 @@ const Footer = () => {
       </div>
 
       <div className={styles.hiddenFooter}>
+
+      <Line color="#241f1f" margin="15% 10% 2% 10%" />  
    
         <div className={styles.icons}>
          
