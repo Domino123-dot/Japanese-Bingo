@@ -2,7 +2,7 @@
 
 .flexbox {
   display: flex;
-  gap: 5%;
+  gap: 3%;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -26,7 +26,7 @@
   border: none;
   border-radius: 10px;
   height: 250px;
-  width: 15%;
+  width: 25%;
   font-family: "Roboto Condensed";
   font-size: 1rem;
   color: white;
@@ -47,18 +47,20 @@
 
 
 @media all and (max-width: 1025px){
-
+.flexbox{
+  flex-direction: column;
+}
  .button{
-  width: 100%;
- }
- .flexbox{
-  column-gap: 50%;
+  width: 90%;
+  &:hover{
+    transform: scale(1);
+  }
+  &:focus{
+    transform: scale(1);
+  }
  }
 
- .hint{
-  font-size: 1.5rem;
-  left:45%;
- }
+
   
 }
 

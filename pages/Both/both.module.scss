@@ -2,6 +2,8 @@
 
 .flexbox {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 120px;
 }
 .QuizFlexbox {
   display: flex;
@@ -14,6 +16,14 @@
 
 .kanas {
   flex: 1;
+  text-align: center;
+}
+
+.header{
+  height: 0;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: -50px;
   text-align: center;
 }
 
@@ -66,13 +76,13 @@
 
 .button {
   position: relative;
-  left: 33%;
+  left: -90%;
   background-color: #433a1f;
   text-decoration: none;
   border: none;
   border-radius: 10px;
   height: 100px;
-  width: 33%;
+  width: 80%;
   font-family: "Roboto Condensed";
   font-size: 1rem;
   color: white;
@@ -109,6 +119,34 @@
   &:hover {
     background-color: #433a1f;
     transition: 2s;
+  }
+}
+
+.buttonFnsh{
+  width: 40%;
+  position: relative;
+  top: 10%;
+  left: 30%;
+  height: 5rem; 
+  border-radius: 5px;
+  border: none;
+  background-color: #433a1f;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Roboto Condensed';
+  font-size: large;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px 0px,
+  rgba(0, 0, 0, 0.22) 0px 15px 12px 0px;
+  &:hover {
+    transform: scale(110%);
+    transition: 1.2s;
+  }
+  &:focus {
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.335);
+    transform: scale(110%);
+    transition: 1.2s;
   }
 }
 

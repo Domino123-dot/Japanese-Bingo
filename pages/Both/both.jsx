@@ -6,6 +6,7 @@ import Backbutton from "../../components/backButton/Backbutton";
 import axios from "axios";
 import OptionButton from "../../components/OptionButton/OptionButton";
 import Button from "../../components/button/button";
+import Line from "../../components/line";
 
 const States = {
   init: "init",
@@ -52,7 +53,12 @@ const QuestionSelect = ({ questions }) => {
   }, [firstQuestionPool, secondQuestionPool, thirdQuestionPool]);
 
   return (
+    
     <div className={styles.flexbox}>
+      <div className={styles.header}>Hiragana
+      <Line color="#241f1f" margin="1% 30% 0 30%" />
+      </div>
+      
       <div className={styles.kanas}>
         <h1>Main Kana</h1>
         <OptionButton
@@ -151,6 +157,8 @@ const QuestionSelect = ({ questions }) => {
             { text: "pya |ぴゃ", value: "pya/",  },
           ]}
         />
+      
+
         <div
           className={appearButton ? styles.flexbox : styles.flexboxDissapeared}
         >
@@ -163,6 +171,101 @@ const QuestionSelect = ({ questions }) => {
             Start!
           </button>
         </div>
+        
+      </div>
+
+      <div className={styles.header}>Katakana
+      <Line color="#241f1f" margin="1% 30% 0 30%" />
+      </div>
+      <div className={styles.kanas}>
+        <h1>Main Kana</h1>
+        <OptionButton
+          onChange={(values) => {
+            setSecondQuestionPool(values);
+          }}
+          options={[
+            {
+              text: "ga gi gu ge go | が ぎ ぐ げ ご",
+              value: "ga/",
+            },
+            {
+              text: "za ji zu ze zo | ざ じ ず ぜ ぞ",
+              value: "za/",
+            },
+            {
+              text: "da ji zu de do | だ じ で ど",
+              value: "da/",
+            },
+            {
+              text: "ba bi bu be bo | ば び ぶ べ ぼ",
+              value: "ba/",
+            },
+            {
+              text: "pa pi pu pe po | ぱ ぴ ぷ ぺ ぽ",
+              value: "pa/",
+            },
+          ]}
+        />
+      </div>
+      <div className={styles.kanas}>
+        <h1>Dakuten</h1>
+        <OptionButton
+          onChange={(values) => {
+            setSecondQuestionPool(values);
+          }}
+          options={[
+            {
+              text: "ga gi gu ge go | が ぎ ぐ げ ご",
+              value: "ga/",
+            },
+            {
+              text: "za ji zu ze zo | ざ じ ず ぜ ぞ",
+              value: "za/",
+            },
+            {
+              text: "da ji zu de do | だ じ で ど",
+              value: "da/",
+            },
+            {
+              text: "ba bi bu be bo | ば び ぶ べ ぼ",
+              value: "ba/",
+            },
+            {
+              text: "pa pi pu pe po | ぱ ぴ ぷ ぺ ぽ",
+              value: "pa/",
+            },
+          ]}
+        />
+      </div>
+      <div className={styles.kanas}>
+        <h1>Combination</h1>
+        <OptionButton
+          onChange={(values) => {
+            setSecondQuestionPool(values);
+          }}
+          options={[
+            {
+              text: "ga gi gu ge go | が ぎ ぐ げ ご",
+              value: "ga/",
+            },
+            {
+              text: "za ji zu ze zo | ざ じ ず ぜ ぞ",
+              value: "za/",
+            },
+            {
+              text: "da ji zu de do | だ じ で ど",
+              value: "da/",
+            },
+            {
+              text: "ba bi bu be bo | ば び ぶ べ ぼ",
+              value: "ba/",
+            },
+            {
+              text: "pa pi pu pe po | ぱ ぴ ぷ ぺ ぽ",
+              value: "pa/",
+            },
+          ]}
+        />
       </div>
     </div>
   );
@@ -229,10 +332,10 @@ const Quiz = ({ questionsPool, questions , finished }) => {
             );
           })}
       </div>
-      <div className={styles.QuizFlexbox}>
-        <button className={showFinishButton ? styles.button : styles.buttonDsp
+     
+        <button className={showFinishButton ? styles.buttonFnsh : styles.buttonDsp
         } onClick={finished}>Finish!</button>
-      </div>
+     
     </>
   );
 };
