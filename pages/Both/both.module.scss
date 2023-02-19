@@ -19,7 +19,7 @@
   text-align: center;
 }
 
-.header{
+.header {
   height: 0;
   width: 100%;
   margin-top: 30px;
@@ -122,23 +122,23 @@
   }
 }
 
-.buttonFnsh{
+.buttonFnsh {
   width: 40%;
   position: relative;
   top: 10%;
   left: 30%;
-  height: 5rem; 
+  height: 5rem;
   border-radius: 5px;
   border: none;
   background-color: #433a1f;
   color: white;
   text-decoration: none;
   text-align: center;
-  font-family: 'Roboto Condensed';
+  font-family: "Roboto Condensed";
   font-size: large;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px 0px,
-  rgba(0, 0, 0, 0.22) 0px 15px 12px 0px;
+    rgba(0, 0, 0, 0.22) 0px 15px 12px 0px;
   &:hover {
     transform: scale(110%);
     transition: 1.2s;
@@ -163,8 +163,6 @@
     opacity: 1;
   }
 }
-
-
 
 .menu {
   font-size: 55px;
@@ -287,16 +285,14 @@
     font-size: 30px;
   }
 
-
-  .menuCorrect{
+  .menuCorrect {
     flex: 1 0 30%;
   }
 
-  .menuWrong{
-    flex:1 0 30%;
+  .menuWrong {
+    flex: 1 0 30%;
   }
 
-  
   .button {
     width: 60%;
     left: 18%;

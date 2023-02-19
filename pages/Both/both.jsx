@@ -53,12 +53,12 @@ const QuestionSelect = ({ questions }) => {
   }, [firstQuestionPool, secondQuestionPool, thirdQuestionPool]);
 
   return (
-    
     <div className={styles.flexbox}>
-      <div className={styles.header}>Hiragana
-      <Line color="#241f1f" margin="1% 30% 0 30%" />
+      <div className={styles.header}>
+        Hiragana
+        <Line color="#241f1f" margin="1% 30% 0 30%" />
       </div>
-      
+
       <div className={styles.kanas}>
         <h1>Main Kana</h1>
         <OptionButton
@@ -143,39 +143,27 @@ const QuestionSelect = ({ questions }) => {
             setThirdQuestionPool(values);
           }}
           options={[
-            { text: "kya | きゃ", value: "kya/",},
-            { text: "cha | ちゃ", value: "cha/", },
-            { text: "hya |ひゃ", value: "hya/", },
-            { text: "rya |りゃ", value: "rya/", },
-            { text: "ja |じゃ", value: "ja/",},
-            { text: "bya |びゃ", value: "bya/", },
-            { text: "sha |しゃ", value: "sha/",},
-            { text: "nya |にゃ", value: "nya/",  },
-            { text: "mya |みゃ", value: "mya/",  },
-            { text: "gya |ぎゃ", value: "gya/", },
-            { text: "dya |ぢゃ", value: "dya/",},
-            { text: "pya |ぴゃ", value: "pya/",  },
+            { text: "kya | きゃ", value: "kya/" },
+            { text: "cha | ちゃ", value: "cha/" },
+            { text: "hya |ひゃ", value: "hya/" },
+            { text: "rya |りゃ", value: "rya/" },
+            { text: "ja |じゃ", value: "ja/" },
+            { text: "bya |びゃ", value: "bya/" },
+            { text: "sha |しゃ", value: "sha/" },
+            { text: "nya |にゃ", value: "nya/" },
+            { text: "mya |みゃ", value: "mya/" },
+            { text: "gya |ぎゃ", value: "gya/" },
+            { text: "dya |ぢゃ", value: "dya/" },
+            { text: "pya |ぴゃ", value: "pya/" },
           ]}
         />
-      
 
-        <div
-          className={appearButton ? styles.flexbox : styles.flexboxDissapeared}
-        >
-          <button
-            onClick={() => {
-              questions(pool);
-            }}
-            className={styles.button}
-          >
-            Start!
-          </button>
-        </div>
         
       </div>
 
-      <div className={styles.header}>Katakana
-      <Line color="#241f1f" margin="1% 30% 0 30%" />
+      <div className={styles.header}>
+        Katakana
+        <Line color="#241f1f" margin="1% 30% 0 30%" />
       </div>
       <div className={styles.kanas}>
         <h1>Main Kana</h1>
@@ -237,6 +225,7 @@ const QuestionSelect = ({ questions }) => {
           ]}
         />
       </div>
+      
       <div className={styles.kanas}>
         <h1>Combination</h1>
         <OptionButton
@@ -267,14 +256,20 @@ const QuestionSelect = ({ questions }) => {
           ]}
         />
       </div>
+    
+     
+      
     </div>
+
+    
+    
   );
 };
 
-const Quiz = ({ questionsPool, questions , finished }) => {
+const Quiz = ({ questionsPool, questions, finished }) => {
   const [correctAnswer, setCorrectAnswer] = useState([]);
   const [wrongAnswer, setWrongAnswer] = useState([]);
-  const [showFinishButton , setShowFinishButton] = useState(false);
+  const [showFinishButton, setShowFinishButton] = useState(false);
   return (
     <>
       <div className={styles.QuizFlexbox}>
@@ -332,10 +327,13 @@ const Quiz = ({ questionsPool, questions , finished }) => {
             );
           })}
       </div>
-     
-        <button className={showFinishButton ? styles.buttonFnsh : styles.buttonDsp
-        } onClick={finished}>Finish!</button>
-     
+
+      <button
+        className={showFinishButton ? styles.buttonFnsh : styles.buttonDsp}
+        onClick={finished}
+      >
+        Finish!
+      </button>
     </>
   );
 };
@@ -372,7 +370,13 @@ const both = () => {
           )}
 
           {state === States.progress && (
-            <Quiz questionsPool={questionPool} questions={questions} finished={()=>{setState(States.finished)}} />
+            <Quiz
+              questionsPool={questionPool}
+              questions={questions}
+              finished={() => {
+                setState(States.finished);
+              }}
+            />
           )}
 
           {state === States.finished && (
