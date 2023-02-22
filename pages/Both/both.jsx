@@ -53,6 +53,7 @@ const QuestionSelect = ({ questions }) => {
   }, [firstQuestionPool, secondQuestionPool, thirdQuestionPool]);
 
   return (
+    <>
     <div className={styles.flexbox}>
       <div className={styles.header}>
         Hiragana
@@ -157,8 +158,6 @@ const QuestionSelect = ({ questions }) => {
             { text: "pya |ぴゃ", value: "pya/" },
           ]}
         />
-
-        
       </div>
 
       <div className={styles.header}>
@@ -173,24 +172,40 @@ const QuestionSelect = ({ questions }) => {
           }}
           options={[
             {
-              text: "ga gi gu ge go | が ぎ ぐ げ ご",
-              value: "ga/",
+              text: "a i u e o | ア イ ウ エ オ",
+              value: "a/kat",
             },
             {
-              text: "za ji zu ze zo | ざ じ ず ぜ ぞ",
-              value: "za/",
+              text: "ka ki ku ko | カ キ ク ケ コ",
+              value: "ka/kat",
             },
             {
-              text: "da ji zu de do | だ じ で ど",
-              value: "da/",
+              text: "sa shi su se so | サ シ ス セ ソ",
+              value: "sa/kat",
             },
             {
-              text: "ba bi bu be bo | ば び ぶ べ ぼ",
-              value: "ba/",
+              text: " na ni nu ne no | ナ ニ ヌ ネ ノ",
+              value: "na/kat",
             },
             {
-              text: "pa pi pu pe po | ぱ ぴ ぷ ぺ ぽ",
-              value: "pa/",
+              text: "ha hi fu he ho | ハ ヒ フ ヘ ホ",
+              value: "ha/kat",
+            },
+            {
+              text: "ma mi mu me mo | マ ミ ム メ モ",
+              value: "ma/kat",
+            },
+            {
+              text: "ya yu yo | ヤ ユ ヨ ",
+              value: "ya/kat",
+            },
+            {
+              text: "ra ri ru re ro | ラ リ ル レ ロ",
+              value: "ra/kat",
+            },
+            {
+              text: "wa wo n | ワ ヲ ン",
+              value: "wa/kat",
             },
           ]}
         />
@@ -203,29 +218,29 @@ const QuestionSelect = ({ questions }) => {
           }}
           options={[
             {
-              text: "ga gi gu ge go | が ぎ ぐ げ ご",
-              value: "ga/",
+              text: "ga gi gu ge go | ガ ギ グ ゲ ゴ",
+              value: "ga/kat",
             },
             {
-              text: "za ji zu ze zo | ざ じ ず ぜ ぞ",
-              value: "za/",
+              text: "za ji zu ze zo | ザ ジ ズ ゼ ゾ",
+              value: "za/kat",
             },
             {
-              text: "da ji zu de do | だ じ で ど",
-              value: "da/",
+              text: "da ji zu de do | ダ ヂ ヅ デ ド",
+              value: "da/kat",
             },
             {
-              text: "ba bi bu be bo | ば び ぶ べ ぼ",
-              value: "ba/",
+              text: "ba bi bu be bo | バ ビ ブ ベ ボ",
+              value: "ba/kat",
             },
             {
-              text: "pa pi pu pe po | ぱ ぴ ぷ ぺ ぽ",
-              value: "pa/",
+              text: "pa pi pu pe po | パ ピ プ ペ ポ",
+              value: "pa/kat",
             },
           ]}
         />
       </div>
-      
+
       <div className={styles.kanas}>
         <h1>Combination</h1>
         <OptionButton
@@ -233,36 +248,33 @@ const QuestionSelect = ({ questions }) => {
             setSecondQuestionPool(values);
           }}
           options={[
-            {
-              text: "ga gi gu ge go | が ぎ ぐ げ ご",
-              value: "ga/",
-            },
-            {
-              text: "za ji zu ze zo | ざ じ ず ぜ ぞ",
-              value: "za/",
-            },
-            {
-              text: "da ji zu de do | だ じ で ど",
-              value: "da/",
-            },
-            {
-              text: "ba bi bu be bo | ば び ぶ べ ぼ",
-              value: "ba/",
-            },
-            {
-              text: "pa pi pu pe po | ぱ ぴ ぷ ぺ ぽ",
-              value: "pa/",
-            },
+            { text: "kya | キャ", value: "kya/kat" },
+            { text: "cha | チャ", value: "cha/kat" },
+            { text: "hya |ヒャ", value: "hya/kat" },
+            { text: "rya |リャ", value: "rya/kat" },
+            { text: "ja |ジャ", value: "ja/kat" },
+            { text: "bya |ビャ", value: "bya/kat" },
+            { text: "sha |シャ", value: "sha/kat" },
+            { text: "nya |ニャ", value: "nya/kat" },
+            { text: "mya |ミャ", value: "mya/kat" },
+            { text: "gya |ギャ", value: "gya/kat" },
+            { text: "dya |ヂャ", value: "dya/kat" },
+            { text: "pya |ピャ", value: "pya/kat" },
           ]}
         />
       </div>
-    
-     
       
     </div>
-
-    
-    
+   
+        <button
+          onClick={() => {
+            questions(pool);
+          }}
+          className={appearButton ? styles.buttonStart : styles.buttonDsp}
+        >
+          Start!
+        </button>
+    </>
   );
 };
 
@@ -329,7 +341,7 @@ const Quiz = ({ questionsPool, questions, finished }) => {
       </div>
 
       <button
-        className={showFinishButton ? styles.buttonFnsh : styles.buttonDsp}
+        className={showFinishButton ? styles.buttonFinish : styles.buttonDsp}
         onClick={finished}
       >
         Finish!
