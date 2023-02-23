@@ -20,6 +20,18 @@
 }
 
 
+.iconDisabled{
+  color: rgba(255, 255, 255, 0.305);
+  font-size: 2.5rem;
+  height: 2rem;
+  position: relative;
+  top:-35px;
+  &:hover{
+    color: rgba(255, 255, 255, 0.305);
+  }
+}
+
+
 .button {
   background-color: #433a1f;
   text-decoration: none;
@@ -45,6 +57,20 @@
   }
 }
 
+.buttonDisabled{
+  background-color: #433a1fa0;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  height: 250px;
+  width: 25%;
+  font-family: "Roboto Condensed";
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.426);
+  transform: scale(0.9);
+
+}
+
 
 @media all and (max-width: 1025px){
 .flexbox{
@@ -60,6 +86,10 @@
   }
  }
 
+ .buttonDisabled{
+  width: 90%;
+
+ }
 
   
 }

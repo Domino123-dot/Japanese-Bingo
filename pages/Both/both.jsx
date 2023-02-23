@@ -37,11 +37,14 @@ const QuestionSelect = ({ questions }) => {
   const [firstQuestionPool, setFirstQuestionPool] = useState([]);
   const [secondQuestionPool, setSecondQuestionPool] = useState([]);
   const [thirdQuestionPool, setThirdQuestionPool] = useState([]);
+  const [fourthQuestionPool, setFourthQuestionPool] = useState([]);
+  const [fifthQuestionPool, setFifthQuestionPool] = useState([]);
+  const [sixthQuestionPool, setSixthQuestionPool] = useState([]);
   const [pool, setPool] = useState([]);
   const appearButton =
     firstQuestionPool.length +
       secondQuestionPool.length +
-      thirdQuestionPool.length >
+      thirdQuestionPool.length + fourthQuestionPool.length + fifthQuestionPool.length + sixthQuestionPool.length   >
     0;
 
   useEffect(() => {
@@ -49,8 +52,11 @@ const QuestionSelect = ({ questions }) => {
       ...firstQuestionPool,
       ...secondQuestionPool,
       ...thirdQuestionPool,
+      ...fourthQuestionPool,
+      ...fifthQuestionPool,
+      ...sixthQuestionPool,
     ]);
-  }, [firstQuestionPool, secondQuestionPool, thirdQuestionPool]);
+  }, [firstQuestionPool, secondQuestionPool, thirdQuestionPool,fourthQuestionPool,fifthQuestionPool,sixthQuestionPool]);
 
   return (
     <>
@@ -168,7 +174,7 @@ const QuestionSelect = ({ questions }) => {
         <h1>Main Kana</h1>
         <OptionButton
           onChange={(values) => {
-            setSecondQuestionPool(values);
+            setFourthQuestionPool(values);
           }}
           options={[
             {
@@ -214,7 +220,7 @@ const QuestionSelect = ({ questions }) => {
         <h1>Dakuten</h1>
         <OptionButton
           onChange={(values) => {
-            setSecondQuestionPool(values);
+            setFifthQuestionPool(values);
           }}
           options={[
             {
@@ -245,7 +251,7 @@ const QuestionSelect = ({ questions }) => {
         <h1>Combination</h1>
         <OptionButton
           onChange={(values) => {
-            setSecondQuestionPool(values);
+            setSixthQuestionPool(values);
           }}
           options={[
             { text: "kya | キャ", value: "kya/kat" },

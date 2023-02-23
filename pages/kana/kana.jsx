@@ -20,16 +20,16 @@ const kana = () => {
         </Header>
 
         <div className={styles.flexbox}>
-          <Button href="/Hiragana" style={styles.button}>
-            <div className={styles.icon}>
+          <Button isDisabled={true} href="/Hiragana" style={styles.buttonDisabled}>
+            <div className={styles.iconDisabled}>
               {" "}
               <Icon icon={faEgg} />
             </div>
             Newbie Friendly Quiz
           </Button>{" "}
           <br />
-          <Button href="/Katakana" style={styles.button}>
-            <div className={styles.icon}>
+          <Button isDisabled={true} href="/Katakana" style={styles.buttonDisabled}>
+            <div className={styles.iconDisabled}>
               {" "}
               <Icon icon={faRotate} />{" "}
             </div>
