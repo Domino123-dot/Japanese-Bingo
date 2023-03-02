@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../components/header/header";
 import styles from "../../pages/Both/both.module.scss";
 import Layout from "../../components/layout/layout";
@@ -33,7 +33,7 @@ const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot, score }) => {
   );
 };
 
-const QuestionSelect = ({ questions }) => {
+const QuestionSelect = ({ questions, pointsToGet }) => {
   const [firstQuestionPool, setFirstQuestionPool] = useState([]);
   const [secondQuestionPool, setSecondQuestionPool] = useState([]);
   const [thirdQuestionPool, setThirdQuestionPool] = useState([]);
@@ -41,6 +41,7 @@ const QuestionSelect = ({ questions }) => {
   const [fifthQuestionPool, setFifthQuestionPool] = useState([]);
   const [sixthQuestionPool, setSixthQuestionPool] = useState([]);
   const [pool, setPool] = useState([]);
+  const MaxPoints = useRef(0);
   const appearButton =
     firstQuestionPool.length +
       secondQuestionPool.length +
@@ -67,6 +68,10 @@ const QuestionSelect = ({ questions }) => {
     fifthQuestionPool,
     sixthQuestionPool,
   ]);
+
+  useEffect(() => {
+    MaxPoints = pool.length;
+  }, [pool]);
 
   return (
     <>
@@ -283,6 +288,7 @@ const QuestionSelect = ({ questions }) => {
 
       <button
         onClick={() => {
+          pointsToGet(MaxPoints);
           questions(pool);
         }}
         className={appearButton ? styles.buttonStart : styles.buttonDsp}
@@ -293,10 +299,16 @@ const QuestionSelect = ({ questions }) => {
   );
 };
 
-const Quiz = ({ questionsPool, questions, finished }) => {
+const Quiz = ({ questionsPool, questions, finished, answeredPoints }) => {
   const [correctAnswer, setCorrectAnswer] = useState([]);
   const [wrongAnswer, setWrongAnswer] = useState([]);
   const [showFinishButton, setShowFinishButton] = useState(false);
+  const [goodPoint , setGoodPoint] = useState(0);
+
+  useEffect(() => {
+    setGoodPoint(goodPoint +1);
+    console.log(goodPoint)
+  },[correctAnswer]);
   return (
     <>
       <div className={styles.QuizFlexbox}>
@@ -357,7 +369,10 @@ const Quiz = ({ questionsPool, questions, finished }) => {
 
       <button
         className={showFinishButton ? styles.buttonFinish : styles.buttonDsp}
-        onClick={finished}
+        onClick={() => {
+          answeredPoints(goodPoint);
+          finished();
+        }}
       >
         Finish!
       </button>
@@ -369,6 +384,8 @@ const both = () => {
   const [questions, setQuestions] = useState([]);
   const [state, setState] = useState(States.init);
   const [questionPool, setQuestionPool] = useState([]);
+  const [correct, setCorrect] = useState(0);
+  const [max, setMax] = useState(null);
   useEffect(() => {
     axios.get("http://localhost:8000/api/questions").then((response) => {
       setQuestions(response.data);
@@ -389,6 +406,9 @@ const both = () => {
 
           {state === States.init && (
             <QuestionSelect
+              pointsToGet={(value) => {
+                setMax(value);
+              }}
               questions={(values) => {
                 setQuestionPool(values);
                 setState(States.progress);
@@ -400,6 +420,9 @@ const both = () => {
             <Quiz
               questionsPool={questionPool}
               questions={questions}
+              answeredPoints={(value) => {
+                setCorrect(value);
+              }}
               finished={() => {
                 setState(States.finished);
               }}
@@ -408,8 +431,8 @@ const both = () => {
 
           {state === States.finished && (
             <SumbitQuiz
-              maxPointsToGet={"x"}
-              pointsPlayerGot={"x"}
+              maxPointsToGet={max}
+              pointsPlayerGot={correct}
               score={"x"}
             />
           )}
