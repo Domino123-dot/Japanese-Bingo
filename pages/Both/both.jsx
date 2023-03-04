@@ -17,6 +17,7 @@ const States = {
 const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot }) => {
   const scorePercent = 0;
   scorePercent = pointsPlayerGot / maxPointsToGet * 100;
+
   return (
     <>
       <div className={styles.blurAppear} />
@@ -26,10 +27,11 @@ const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot }) => {
           You got {pointsPlayerGot} out of {maxPointsToGet} questions! <br />
           Your score : {scorePercent.toFixed(0)}%
         </div>
-
-        <Button href="/" style={styles.buttonFinish}>
+        <div className={styles.backButtonFinal}>
+        <Button href="/" style={styles.buttonBackScore}>
           Back
         </Button>
+        </div>
       </div>
     </>
   );
