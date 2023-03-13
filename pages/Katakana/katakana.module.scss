@@ -6,7 +6,7 @@
 
 .menu {
   font-size: large;
-  border: 4px solid #2b2a2a;
+  border: 4px solid gray;
   border-radius: 15px;
   text-align: center;
   text-decoration: none;
@@ -21,13 +21,13 @@
   &:hover {
     transition: 1.5s;
     transform: scale(1.1);
-    border: 4px solid #d6d6d6;
-    color: #d6d6d6;
+    border: 4px solid black;
+    color: black;
   }
 }
 .options {
   font-size: medium;
-  border: 4px solid #2b2a2a;
+  border: 4px solid gray;
   border-radius: 15px;
   text-align: center;
   text-decoration: none;
@@ -39,8 +39,8 @@
 
   &:hover {
     transition: 1.5s;
-    border: 4px solid #d6d6d6;
-    color: #d6d6d6;
+    border: 4px solid black;
+    color: black;
   }
 }
 
@@ -67,8 +67,8 @@
   height: 100px;
   width: 25%;
   &:enabled {
-    border: 4px solid #d6d6d6;
-    color: #d6d6d6;
+    border: 4px solid black;
+    color: black;
   }
 }
 
@@ -86,10 +86,7 @@
     display: block;
     width: 100%;
   }
-  .options{
+  .options {
     width: 100%;
-
   }
 }
-
-  

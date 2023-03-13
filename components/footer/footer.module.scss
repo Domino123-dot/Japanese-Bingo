@@ -1,27 +1,27 @@
 .footer {
   font-size: 20px;
-  display: flex;
+  float: left;
   color: black;
+  width: 100%;
 }
 
 .text {
   margin-right: 5%;
   margin-left: 7%;
+  float: left;
 }
 
 .a {
   text-decoration: none;
   color: black;
   transition: 1.5s;
-  &:hover {
-    color: white;
-    transition: 1.5s;
-  }
+
 }
 
 .icons {
   margin-right: 5%;
   margin-left: 5%;
+  float: left;
 }
 
 .hiddenFooter {
@@ -30,7 +30,7 @@
   color: black;
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1163px) {
   .footer {
     display: none;
   }
@@ -38,10 +38,9 @@
     font-size: 25px;
     
   }
-
-  .hiddenFooter {
-    display: flex;
-  }
+.hiddenFooter{
+display: block;
+}
   .icons {
     margin-right: 0.5rem;
     margin-left: 0.5rem;

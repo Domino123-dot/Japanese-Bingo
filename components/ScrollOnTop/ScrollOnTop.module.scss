@@ -1,13 +1,14 @@
 .ScrollUp {
-display: flex;
-  position: sticky;
+  display: flex;
+  position: fixed;
   float: right;
   font-size: 70px;
   bottom: 50px;
   right: 50px;
-  transition: 1.5s;
+  transition: 1s;
   color: rgba(0, 0, 0, 0.52);
   opacity: 1;
+  border-radius: 40px;
   &:hover {
     transition: 1.5s;
     color: rgba(255, 255, 255, 0.52);
@@ -15,13 +16,13 @@ display: flex;
 }
 
 .DisabledScrollUp {
-visibility: hidden;
+  visibility: hidden;
   position: sticky;
   float: right;
   font-size: 70px;
   bottom: 50px;
   right: 50px;
   opacity: 0;
-  transition: visibility 1.5s linear, opacity .5s linear;
+  transition: visibility 1.5s linear, opacity 0.5s linear;
   color: rgba(0, 0, 0, 0.52);
 }
