@@ -25,6 +25,7 @@ const Select = ({ options, onChange }) => {
     setSelectedAll(
       options.filter(({ value }) => !selectedOptions.includes(value)).length ===
         0
+
     );
   }, [selectedOptions, onChange, options]);
 
@@ -46,17 +47,21 @@ const Select = ({ options, onChange }) => {
           
         }}
       />
-      {options.map(({ text, value }) => (
+      {options.map(({ text, value , maxPointsToGet }) => (
         <Option
           key={`select-option-${value}`}
           text={text}
           value={value}
+          maxPointsToGet = {maxPointsToGet}
           selected={selectedOptions.includes(value)}
           onSelect={(val) => {
             if (selectedOptions.includes(value)) {
               setSelectedOptions(selectedOptions.filter((it) => it !== val));
+           
+             
             } else {
               setSelectedOptions([...selectedOptions, val]);
+             
             }
           }}
         />
