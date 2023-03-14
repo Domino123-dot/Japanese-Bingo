@@ -14,23 +14,41 @@ const States = {
   finished: "finished",
 };
 
-const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot }) => {
+const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot, test }) => {
   const scorePercent = 0;
-  scorePercent = pointsPlayerGot / maxPointsToGet * 100;
+  scorePercent = (pointsPlayerGot / maxPointsToGet) * 100;
+  const title = "";
+
+  {
+    if (scorePercent <= 20) {
+      title = "Meh....";
+    } else if (scorePercent >= 20 && scorePercent < 80) {
+      title = "Pretty Good!";
+    } else if (scorePercent >= 80 && scorePercent < 100) {
+      title = "Almost got it all!";
+    } else if (scorePercent === 100) {
+      title = "Congrats! Got it all!";
+    } else {
+      title = "!ERROR!";
+    }
+  }
 
   return (
     <>
       <div className={styles.blurAppear} />
       <div className={styles.finishBoxAppear}>
-        <div className={styles.header}>Congratulations</div>
+        <div className={styles.header}>{title}</div>
         <div className={styles.bottomText}>
           You got {pointsPlayerGot} out of {maxPointsToGet} questions! <br />
           Your score : {scorePercent.toFixed(0)}%
         </div>
         <div className={styles.backButtonFinal}>
-        <Button href="/" style={styles.buttonBackScore}>
-          Back
-        </Button>
+          <Button href="/" style={styles.buttonBackScore}>
+            Back
+          </Button>
+          <button onclick={test(true)} className={styles.buttonBackScore}>
+            Again
+          </button>
         </div>
       </div>
     </>
@@ -310,7 +328,7 @@ const Quiz = ({
   const [showFinishButton, setShowFinishButton] = useState(false);
   const [goodPoint, setGoodPoint] = useState(0);
   const maxPoints = 0;
- 
+
   return (
     <>
       <div className={styles.QuizFlexbox}>
@@ -325,7 +343,6 @@ const Quiz = ({
           .map((question) => {
             if (question.max_points_to_get === 1) {
               maxPoints = maxPoints + 1;
-             
             }
             return (
               <div
@@ -441,6 +458,11 @@ const both = () => {
             <SumbitQuiz
               maxPointsToGet={max}
               pointsPlayerGot={correct}
+              test ={(e)=>{
+               if(e === true){
+                setState(States.progress)
+               }
+              }}
             />
           )}
         </Layout>
