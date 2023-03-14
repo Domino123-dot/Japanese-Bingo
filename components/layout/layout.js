@@ -15,6 +15,11 @@ export default function Layout({ children }) {
            new features coming soon!
            Feel free to leave a feedback what should we add next <3"
         />
+        <meta
+          name="keywords"
+          content="japanese , katakana , hiragana , quiz , japanese quiz , 
+          japanese hiragana quiz , katakana quiz , hiragana quiz , japanese katakana quiz"
+        />
       </Helmet>
       <main>{children}</main>
 

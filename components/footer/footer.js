@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../footer/footer.module.scss";
 import Line from "../line";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Icon from "../icon/icon";
 const Footer = () => {
   return (
