@@ -458,10 +458,10 @@ const both = () => {
             <SumbitQuiz
               maxPointsToGet={max}
               pointsPlayerGot={correct}
-              test ={(e)=>{
-               if(e === true){
-                setState(States.progress)
-               }
+              test={(e) => {
+                if (e === true) {
+                  setState(States.progress);
+                }
               }}
             />
           )}

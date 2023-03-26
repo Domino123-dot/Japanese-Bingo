@@ -19,29 +19,31 @@ const kana = () => {
         </Header>
 
         <div className={styles.flexbox}>
-          <Button isDisabled={true} href="/Hiragana" style={styles.buttonDisabled}>
-            <div className={styles.iconDisabled}>
-              {" "}
-              <Icon icon={faEgg} />
-            </div>
-            Newbie Friendly Quiz
-          </Button>{" "}
-          <br />
-          <Button isDisabled={true} href="/Katakana" style={styles.buttonDisabled}>
-            <div className={styles.iconDisabled}>
-              {" "}
-              <Icon icon={faRotate} />{" "}
-            </div>
-            Friendly Quiz (Reverse)
-          </Button>{" "}
-          <br />
-          <Button href="/Both" style={styles.button}>
+        <Button href="/Both" style={styles.button}>
             <div className={styles.icon}>
               {" "}
               <Icon icon={faIceCream} />{" "}
             </div>
-            Vanilla Kana Quiz
+            Vanilla kana chart quiz
           </Button>
+          <br />
+          <Button isDisabled={true} href="/" style={styles.buttonDisabled}>
+            <div className={styles.iconDisabled}>
+              {" "}
+              <Icon icon={faEgg} />
+            </div>
+            Cooming soon!
+          </Button>{" "}
+          <br />
+          <Button isDisabled={true} href="/" style={styles.buttonDisabled}>
+            <div className={styles.iconDisabled}>
+              {" "}
+              <Icon icon={faRotate} />{" "}
+            </div>
+            Cooming soon!
+          </Button>{" "}
+          <br />
+          
         </div>
       </Layout>
     </>

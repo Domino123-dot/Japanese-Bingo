@@ -32,12 +32,12 @@ export default function Home() {
             Kana Quiz Categories
           </Button>{" "}
           <br />
-          <Button isDisabled={true} href="/" style={styles.buttonDisabled}>
+          <Button href="/feedback" style={styles.button}>
             <div className={styles.icon}>
               {" "}
               <Icon icon={faComments} />{" "}
             </div>
-            I'll enjoy your feedback!
+            Contact Us
           </Button>{" "}
         </div>
       </Layout>
