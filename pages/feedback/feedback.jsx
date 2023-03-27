@@ -22,6 +22,7 @@ const main = () => {
               spellCheck="false"
               required
               autoFocus="true"
+              autoComplete="false"
             />
             <Line color="#433a1f" margin="0 0 0 0" />
             <textarea
