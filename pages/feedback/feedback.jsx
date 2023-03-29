@@ -12,17 +12,19 @@ const main = () => {
           <form
             action="https://formsubmit.co/2451052fb78deffad0c6a4699a57f992"
             method="POST"
+            className={styles.form}
           >
             <h1 className={styles.text}>I'll enjoy your opinion!</h1>
             <input
               type="email"
               name="email"
-              placeholder="e-mail"
+              autoComplete="false"
+              placeholder="place your e-mail"
               className={styles.element}
               spellCheck="false"
               required
               autoFocus="true"
-              autoComplete="false"
+             
             />
             <Line color="#433a1f" margin="0 0 0 0" />
             <textarea
@@ -31,7 +33,6 @@ const main = () => {
               className={styles.textArea}
               spellCheck="false"
               maxLength="460"
-              cols="60"
               rows="15"
               required
             />
