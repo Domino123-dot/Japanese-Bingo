@@ -414,11 +414,13 @@ const both = () => {
   useEffect(() => {
     axios.get("http://back-end.e-hiragana.online/admin/quiz/questions/").then((response) => {
       setQuestions(response.data);
+      console.log(questions);
     });
   }, []);
 
   return (
     <>
+    
       <React.StrictMode>
         <Layout>
           <Backbutton />
@@ -434,6 +436,7 @@ const both = () => {
               questions={(values) => {
                 setQuestionPool(values);
                 setState(States.progress);
+                
               }}
             />
           )}
