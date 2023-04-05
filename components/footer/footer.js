@@ -12,9 +12,9 @@ const Footer = () => {
       <Line color="#241f1f" margin="30% 5% 0 5%" />  
         <div className={styles.text}>Website made by J.K.</div>
         <div className={styles.icons}>
-          <Icon link="mailto:pl.kubakot@Gmail.com" icon={faEnvelope}>
+          <Icon link="mailto:feedback@e-hiragana.online" icon={faEnvelope}>
             {" "}
-            pl.kubakot@gmail.com
+            feedback@e-hiragana.online
           </Icon>
         </div>
         <div className={styles.icons}>
@@ -31,7 +31,7 @@ const Footer = () => {
    
         <div className={styles.icons}>
          
-          <Icon link="mailto:pl.kubakot@Gmail.com" icon={faEnvelope} />
+          <Icon link="mailto:feedback@e-hiragana.online" icon={faEnvelope} />
         </div>
 
         <div className={styles.icons}>

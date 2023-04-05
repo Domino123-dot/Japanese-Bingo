@@ -14,7 +14,7 @@ const States = {
   finished: "finished",
 };
 
-const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot, test }) => {
+const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot}) => {
   const scorePercent = 0;
   scorePercent = (pointsPlayerGot / maxPointsToGet) * 100;
   const title = "";
@@ -46,9 +46,6 @@ const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot, test }) => {
           <Button href="/" style={styles.buttonBackScore}>
             Back
           </Button>
-          <button onclick={test(true)} className={styles.buttonBackScore}>
-            Again
-          </button>
         </div>
       </div>
     </>
@@ -412,7 +409,7 @@ const both = () => {
   const [correct, setCorrect] = useState(0);
   const [max, setMax] = useState(null);
   useEffect(() => {
-    axios.get("http://localhost:8000/api/questions").then((response) => {
+    axios.get("http://back-end.e-hiragana.online/api/questions/").then((response) => {
       setQuestions(response.data);
     });
   }, []);
@@ -458,11 +455,7 @@ const both = () => {
             <SumbitQuiz
               maxPointsToGet={max}
               pointsPlayerGot={correct}
-              test ={(e)=>{
-               if(e === true){
-                setState(States.progress)
-               }
-              }}
+              
             />
           )}
         </Layout>

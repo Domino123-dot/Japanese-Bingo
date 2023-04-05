@@ -28,4 +28,8 @@ scroll-behavior: smooth;
 
 }
 
+::placeholder{
+  color:#433a1f;
+}
+
 

@@ -14,7 +14,6 @@
   width: 33%;
   margin-left: 32%;
   display: inline-block;
-  font-family: "Roboto Condensed";
   border-radius: 5px;
   border: none;
   color:white;
@@ -126,14 +125,13 @@
 }
 .buttonFinish {
   width: 30%;
-  font-family: "Roboto Condensed";
   height: 100px;
   width: 33%;
   margin-left: 32%;
   border-radius: 5px;
   border: none;
   background-color: #695c36;
-  color: black;
+  color: white;
   text-decoration: none;
   text-align: center;
   font-weight: bold;
@@ -148,13 +146,12 @@
 
 .buttonBackScore {
   width: 30%;
-  font-family: "Roboto Condensed";
   height: 100px;
   width: 33%;
   border-radius: 5px;
   border: none;
   background-color: #695c36;
-  color: black;
+  color: white;
   text-decoration: none;
   text-align: center;
   font-weight: bold;
@@ -207,7 +204,6 @@
 
 .backButtonFinal{
   width: 100%;
-  font-family: "Roboto Condensed";
 }
 
 .header {
@@ -248,7 +244,6 @@
 }
 .input {
   outline: none;
-  font-family: "Roboto Condensed";
   font-weight: 900;
   width: 80%;
   height: 30%;
@@ -269,7 +264,6 @@
 .inputCorrect {
   outline: none;
   width: 80%;
-  font-family: "Roboto Condensed";
   font-weight: 900;
   height: 30%;
   border-radius: 5px;
@@ -285,7 +279,6 @@
 
 .inputWrong {
   outline: none;
-  font-family: "Roboto Condensed";
   font-weight: 900;
   width: 80%;
   height: 30%;
