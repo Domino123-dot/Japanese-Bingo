@@ -22,7 +22,7 @@ const kana = () => {
         <Button href="/Both" style={styles.button}>
             <div className={styles.icon}>
               {" "}
-              <Icon icon={faIceCream} />{" "}
+              <Icon link={"/Both"} icon={faIceCream} />{" "}
             </div>
             Vanilla kana chart quiz
           </Button>
@@ -30,7 +30,7 @@ const kana = () => {
           <Button isDisabled={true} href="/" style={styles.buttonDisabled}>
             <div className={styles.iconDisabled}>
               {" "}
-              <Icon icon={faEgg} />
+              <Icon link={"/"} icon={faEgg} />
             </div>
             Cooming soon!
           </Button>{" "}
@@ -38,7 +38,7 @@ const kana = () => {
           <Button isDisabled={true} href="/" style={styles.buttonDisabled}>
             <div className={styles.iconDisabled}>
               {" "}
-              <Icon icon={faRotate} />{" "}
+              <Icon link={"/"} icon={faRotate} />{" "}
             </div>
             Cooming soon!
           </Button>{" "}

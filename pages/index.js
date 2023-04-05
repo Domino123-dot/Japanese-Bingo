@@ -27,12 +27,12 @@ export default function Home() {
           <Button href="/kana" style={styles.button}>
             <div className={styles.icon}>
               {" "}
-              <Icon icon={faLanguage} />
+              <Icon link={"/kana"} icon={faLanguage} />
             </div>
             Kana Quiz Categories
           </Button>{" "}
           <br />
-          <Button href="/feedback" style={styles.button}>
+          <Button link={"/feedback"} href="/feedback" style={styles.button}>
             <div className={styles.icon}>
               {" "}
               <Icon icon={faComments} />{" "}
