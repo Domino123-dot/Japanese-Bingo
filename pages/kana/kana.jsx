@@ -12,10 +12,9 @@ const kana = () => {
       <Backbutton />
       <Layout>
         <Header title="Practice kana">
-          In this section you can practice your kana knowledge. You can choose
-          between japanese Hiragana, Katakana their combinations or you can
-          select all kana where you'll be able to quiz yourself from literally
-          everything (except for kanji).
+          Best I can do for you at this moment is some simple memory hiragana&katakana quiz called "Vanilla", some people
+          will be familiar with that type of quiz, that's why it's "Vanilla" in my opinion, who knows what time will bring us
+          behind those 2 other buttons... have fun! Even it's not that much to do in here...
         </Header>
 
         <div className={styles.flexbox}>

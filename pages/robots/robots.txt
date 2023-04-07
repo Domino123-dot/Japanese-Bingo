@@ -1,0 +1,9 @@
+User-Agent: Googlebot
+Disallow: /back-end.e-hiragana.online/
+
+User-Agent: Googlebot-Image
+Disallow: /back-end.e-hiragana.online/
+
+User-Agent: *
+Disallow: /back-end.e-hiragana.online/
+
