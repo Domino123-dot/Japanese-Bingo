@@ -19,7 +19,7 @@ export default function Home() {
             <h2>
               Welcome on my Japanese quiz project! On this website you'll be
               able to test your Hiragana and Katakana knowledge! Feel free to
-              give me a feedback and have fun!
+              give me a feedback and have fun! No registration required, just simple quizzing!
             </h2>
           </div>
         </div>
@@ -27,12 +27,12 @@ export default function Home() {
           <Button href="/kana" style={styles.button}>
             <div className={styles.icon}>
               {" "}
-              <Icon link={"/kana"} icon={faLanguage} />
+              <Icon icon={faLanguage} />
             </div>
             Kana Quiz Categories
           </Button>{" "}
           <br />
-          <Button link={"/feedback"} href="/feedback" style={styles.button}>
+          <Button href="/feedback" style={styles.button}>
             <div className={styles.icon}>
               {" "}
               <Icon icon={faComments} />{" "}

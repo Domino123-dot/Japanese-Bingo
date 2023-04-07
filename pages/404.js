@@ -3,8 +3,10 @@ import styles from "../pages/404.module.scss";
 import Image from "next/image";
 import kumamon from "../pages/kumamon.png";
 const noFound = () => {
+  /*stop wandering around! */
   return (
     <>
+    
       <div className={styles.flex}>
         <h1 className={styles.forOFor}>Wha...?!</h1>
         <div>

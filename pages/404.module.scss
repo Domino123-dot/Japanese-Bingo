@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     text-align: center;
     background: url(./background.png);
-    background-size: cover;
+    background-size: 100% auto;
 }
 
 
@@ -32,7 +32,7 @@
     width: 32%;
     font-size: 1.2rem;
     font-weight: bolder;
-    color: black;
+    color: #b5b19e;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px 0px,
       rgba(0, 0, 0, 0.22) 0px 15px 12px 0px;

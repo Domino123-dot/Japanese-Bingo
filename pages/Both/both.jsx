@@ -421,9 +421,9 @@ const both = () => {
           <Backbutton />
           <Header title="Practice kana">
             In this section you can practice your kana knowlege, you can choose
-            between japanese hiragana, katakana their combinations or you can
+            between japanese Hiragana, Katakana and their combinations or you can
             select all kana where you'll be able to quiz yourself from literally
-            everything (except for kanji).
+            everything!
           </Header>
 
           {state === States.init && (
