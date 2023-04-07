@@ -10,7 +10,7 @@ const noFound = () => {
         <div>
           <Image src={kumamon} width={200} height={200} />
         </div>
-        <h2 className={styles.text}>Looks like you caught くまモン off guard!</h2>
+        <h2 className={styles.text}>Looks like くまモン is as clueless as you are! You should go back!</h2>
         <a className={styles.a} href="/"><button className={styles.button}>Take me back!</button></a>
       </div>
     </>
