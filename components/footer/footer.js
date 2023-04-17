@@ -12,13 +12,13 @@ const Footer = () => {
       <Line color="#241f1f" margin="30% 5% 0 5%" />  
         <div className={styles.text}>Website made by J.K.</div>
         <div className={styles.icons}>
-          <Icon link="mailto:feedback@e-hiragana.online" icon={faEnvelope}>
+          <Icon style={styles.a} link="mailto:feedback@e-hiragana.online" icon={faEnvelope}>
             {" "}
             feedback@e-hiragana.online
           </Icon>
         </div>
         <div className={styles.icons}>
-          <Icon link="https://github.com/Domino123-dot" icon={faGithub}>
+          <Icon style={styles.a} link="https://github.com/Domino123-dot" icon={faGithub}>
             My Github
           </Icon>
         </div>
@@ -31,11 +31,11 @@ const Footer = () => {
    
         <div className={styles.icons}>
          
-          <Icon link="mailto:feedback@e-hiragana.online" icon={faEnvelope} />
+          <Icon style={styles.a} link="mailto:feedback@e-hiragana.online" icon={faEnvelope} />
         </div>
 
         <div className={styles.icons}>
-          <Icon link="https://github.com/Domino123-dot" icon={faGithub} />
+          <Icon style={styles.a} link="https://github.com/Domino123-dot" icon={faGithub} />
         </div>
        
         <div className={styles.text}>Made by J.K.</div>

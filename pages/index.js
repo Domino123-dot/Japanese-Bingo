@@ -19,7 +19,8 @@ export default function Home() {
             <h2>
               Welcome on my Japanese quiz project! On this website you'll be
               able to test your Hiragana and Katakana knowledge! Feel free to
-              give me a feedback and have fun! No registration required, just simple quizzing!
+              give me a feedback and have fun! No registration required. Just
+              simple quizzing!
             </h2>
           </div>
         </div>

@@ -12,13 +12,15 @@ const kana = () => {
       <Backbutton />
       <Layout>
         <Header title="Practice kana">
-          Best I can do for you at this moment is some simple memory hiragana&katakana quiz called "Vanilla", some people
-          will be familiar with that type of quiz, that's why it's "Vanilla" in my opinion, who knows what time will bring us
-          behind those 2 other buttons... have fun! Even it's not that much to do in here...
+          Best I can do for you at this moment is some simple memory
+          hiragana&katakana quiz called "Vanilla", some people will be familiar
+          with that type of quiz, that's why it's "Vanilla" in my opinion, who
+          knows what time will bring us behind those 2 other buttons... have
+          fun! Even it's not that much to do in here...
         </Header>
 
         <div className={styles.flexbox}>
-        <Button href="/Both" style={styles.button}>
+          <Button href="/Both" style={styles.button}>
             <div className={styles.icon}>
               {" "}
               <Icon icon={faIceCream} />{" "}
@@ -42,7 +44,6 @@ const kana = () => {
             Cooming soon!
           </Button>{" "}
           <br />
-          
         </div>
       </Layout>
     </>
