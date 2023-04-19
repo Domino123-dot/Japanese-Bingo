@@ -1,7 +1,9 @@
+
 import styles from "../pages/404.module.scss";
 import Image from "next/image";
 import kumamon from "../pages/kumamon.png";
 const noFound = () => {
+
   return (
     <>
       <div className={styles.flex}>

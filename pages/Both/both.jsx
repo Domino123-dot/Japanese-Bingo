@@ -409,11 +409,13 @@ const both = () => {
   const [correct, setCorrect] = useState(0);
   const [max, setMax] = useState(null);
   useEffect(() => {
+
     axios
       .get("https://back-end.e-hiragana.online/api/questions/")
       .then((response) => {
         setQuestions(response.data);
       });
+
   }, []);
 
   return (
