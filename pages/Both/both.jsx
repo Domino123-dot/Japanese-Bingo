@@ -14,7 +14,7 @@ const States = {
   finished: "finished",
 };
 
-const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot}) => {
+const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot }) => {
   const scorePercent = 0;
   scorePercent = (pointsPlayerGot / maxPointsToGet) * 100;
   const title = "";
@@ -409,10 +409,13 @@ const both = () => {
   const [correct, setCorrect] = useState(0);
   const [max, setMax] = useState(null);
   useEffect(() => {
-    let url = process.env.API_ENV;
-    axios.get(url).then((response) => {
-      setQuestions(response.data);
-    });
+
+    axios
+      .get("https://back-end.e-hiragana.online/api/questions/")
+      .then((response) => {
+        setQuestions(response.data);
+      });
+
   }, []);
 
   return (
@@ -422,9 +425,9 @@ const both = () => {
           <Backbutton />
           <Header title="Practice kana">
             In this section you can practice your kana knowlege, you can choose
-            between japanese Hiragana, Katakana and their combinations or you can
-            select all kana where you'll be able to quiz yourself from literally
-            everything!
+            between japanese Hiragana, Katakana and their combinations or you
+            can select all kana where you'll be able to quiz yourself from
+            literally everything!
           </Header>
 
           {state === States.init && (
@@ -453,11 +456,7 @@ const both = () => {
           )}
 
           {state === States.finished && (
-            <SumbitQuiz
-              maxPointsToGet={max}
-              pointsPlayerGot={correct}
-              
-            />
+            <SumbitQuiz maxPointsToGet={max} pointsPlayerGot={correct} />
           )}
         </Layout>
       </React.StrictMode>
