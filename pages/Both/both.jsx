@@ -409,7 +409,8 @@ const both = () => {
   const [correct, setCorrect] = useState(0);
   const [max, setMax] = useState(null);
   useEffect(() => {
-    axios.get("https://back-end.e-hiragana.online/api/questions/").then((response) => {
+    let url = process.env.API_ENV;
+    axios.get(url).then((response) => {
       setQuestions(response.data);
     });
   }, []);

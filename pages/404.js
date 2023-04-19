@@ -1,9 +1,9 @@
-import react from "react";
+
 import styles from "../pages/404.module.scss";
 import Image from "next/image";
 import kumamon from "../pages/kumamon.png";
 const noFound = () => {
-  /*stop wandering around! */
+  
   return (
     <>
     
