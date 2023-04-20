@@ -408,13 +408,12 @@ const both = () => {
   const [questionPool, setQuestionPool] = useState([]);
   const [correct, setCorrect] = useState(0);
   const [max, setMax] = useState(null);
+ 
   useEffect(() => {
-
-    axios
-      .get("https://back-end.e-hiragana.online/api/questions/")
-      .then((response) => {
-        setQuestions(response.data);
-      });
+    var api = process.env.NEXT_PUBLIC_API_ENDPOINT;
+    axios.get(api).then((response) => {
+      setQuestions(response.data);
+    });
 
   }, []);
 
