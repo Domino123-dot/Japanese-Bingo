@@ -408,9 +408,10 @@ const both = () => {
   const [questionPool, setQuestionPool] = useState([]);
   const [correct, setCorrect] = useState(0);
   const [max, setMax] = useState(null);
+ 
   useEffect(() => {
-    let url = process.env.API_ENV;
-    axios.get(url).then((response) => {
+    var api = process.env.NEXT_PUBLIC_API_ENDPOINT;
+    axios.get(api).then((response) => {
       setQuestions(response.data);
     });
   }, []);
