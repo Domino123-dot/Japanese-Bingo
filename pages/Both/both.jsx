@@ -410,8 +410,7 @@ const both = () => {
   const [max, setMax] = useState(null);
  
   useEffect(() => {
-    var api = process.env.NEXT_PUBLIC_API_ENDPOINT;
-    console.log(api);
+    var api = process.env.API_ENDPOINT;
     axios.get(api).then((response) => {
       setQuestions(response.data);
     });
