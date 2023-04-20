@@ -411,6 +411,7 @@ const both = () => {
  
   useEffect(() => {
     var api = process.env.NEXT_PUBLIC_API_ENDPOINT;
+    console.log(api);
     axios.get(api).then((response) => {
       setQuestions(response.data);
     });
