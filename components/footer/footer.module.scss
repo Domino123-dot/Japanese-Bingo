@@ -19,8 +19,7 @@
 }
 
 .icons {
-  margin-right: 5%;
-  margin-left: 5%;
+  margin: 0 2% 0 0;
   float: left;
 }
 
@@ -44,5 +43,15 @@ display: block;
   .icons {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
+  }
+}
+
+.a{
+  text-decoration: none;
+  color:#433a1f;
+  transition: 2s;
+  &:hover{
+    color: black;
+    transition: 2s;
   }
 }

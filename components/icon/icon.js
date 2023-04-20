@@ -1,11 +1,10 @@
-import react from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "../icon/icon.module.scss";
-const Icon = ({ icon, children, link }) => {
+
+const Icon = ({ icon, children, link , style }) => {
   return (
     <>
       <div>
-        <a href={link} className={styles.a}>
+        <a href={link} className={style}>
           <FontAwesomeIcon icon={icon} /> {children}{" "}
         </a>
       </div>
