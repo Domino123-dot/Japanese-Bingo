@@ -11,6 +11,7 @@ const kana = () => {
     <>
       <Backbutton />
       <Layout>
+      
         <Header title="Practice kana">
           Best I can do for you at this moment is some simple memory
           hiragana&katakana quiz called "Vanilla", some people will be familiar
