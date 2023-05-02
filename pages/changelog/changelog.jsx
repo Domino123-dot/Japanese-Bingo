@@ -4,52 +4,39 @@ import styles from "./changelog.module.scss";
 import axios from "axios";
 import Line from "../../components/line";
 
+const changelog = () => {
+  const [questions, setQuestions] = useState([]);
 
-const changelog = () =>{
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/changelog/").then((response) => {
+      setQuestions(response.data);
+      console.log(response.data);
+    });
+  }, []);
 
-    const [questions , setQuestions] = useState([]);
-
-    useEffect(() => {
-       
-        axios.get("http://localhost:8000/api/changelog/").then((response) => {
-          setQuestions(response.data);
-
-        });
-      }, []);
-
-
-return(
+  return (
     <>
-        <div className={styles.flex}>
-        <Header  title="Changelog">
-        What's new?
-        </Header>
+      <div className={styles.flex}>
+        <Header title="Changelog">What's new?</Header>
 
-       {questions.map((changelogs)=>{
-        return(
-            <div
-            key={changelogs.ID}>
+        {questions.map((changelogs) => {
+          return (
+            <div key={changelogs.ID}>
+              <div className={styles.title}>
+                <h2>{changelogs.timestamp}</h2>
+              </div>
 
-            <div className={styles.title}><h1>{changelogs.title}</h1> </div>
+              <div className={styles.desc}>{changelogs.info} </div>
 
-            <div className={styles.desc}>{changelogs.info}  </div>
-        
-            <Line color="#241f1f" margin="1% 30% 0 30%" />
+              
+
+              <Line color="#241f1f" margin="0 40% 0 40%" />
             </div>
-        )
-       })}
-
-
-
-        </div>
-    
-    
-    
+          );
+        })}
+      </div>
     </>
-)
-
-
-}
-
+  );
+};
 
 export default changelog;

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class questions(models.Model):
@@ -19,7 +20,6 @@ class changelog(models.Model):
     ID = models.AutoField(primary_key=True)
     title = models.TextField("title", max_length=20, default="test")
     info = models.TextField("info", max_length=500)
-
-
+    timestamp = models.DateField(default=timezone.now)
     def __str__(self):
         return self.title

@@ -15,5 +15,5 @@ class questionsSerializer(serializers.ModelSerializer):
 class changelogSerializer(serializers.ModelSerializer):
     class Meta:
         model = changelog
-        fields = ('ID','title', 'info')
+        fields = ('ID','title', 'info','timestamp')
 
