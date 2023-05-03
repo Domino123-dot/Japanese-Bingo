@@ -21,5 +21,7 @@ class changelog(models.Model):
     title = models.TextField("title", max_length=20, default="test")
     info = models.TextField("info", max_length=500)
     timestamp = models.DateField(default=timezone.now)
+    isNew = models.BooleanField(default=True)
+    
     def __str__(self):
-        return self.title
+        return f'{self.title} , {self.timestamp}'
