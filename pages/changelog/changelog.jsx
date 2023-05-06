@@ -9,7 +9,8 @@ const changelog = () => {
   const [changelog, setChangelog] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/changelog/").then((response) => {
+    const api = process.env.NEXT_PUBLIC_API_CHANGELOG;
+    axios.get(api).then((response) => {
       setChangelog(response.data);
     });
   }, []);
