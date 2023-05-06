@@ -16,6 +16,23 @@
 
 }
 
+.changelog{
+
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #433a1f;
+  
+  
+
+  &:hover{
+    color: gray;
+  }
+}
+
+.a{
+text-decoration: none;
+color: inherit;
+}
 
 .flexbox {
   display: flex;

@@ -3,7 +3,8 @@ import Header from "../../components/header/header";
 import styles from "./changelog.module.scss";
 import axios from "axios";
 import Line from "../../components/line";
-
+import Layout from "../../components/layout/layout.js";
+import Backbutton from "../../components/backButton/Backbutton.js";
 const changelog = () => {
   const [changelog, setChangelog] = useState([]);
 
@@ -15,6 +16,8 @@ const changelog = () => {
 
   return (
     <>
+    <Backbutton/>
+    <Layout>
      <Header title="Changelog">What's new?</Header>
       <div className={styles.flex}>
        
@@ -35,6 +38,7 @@ const changelog = () => {
           );
         })}
       </div>
+      </Layout>
     </>
   );
 };
