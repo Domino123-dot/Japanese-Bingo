@@ -1,23 +1,23 @@
 @font-face {
-  font-family: "Viga";
+  font-family: "Thasadith";
   font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/Viga/Viga-Regular.ttf);
+  font-weight: 100;
+  src: url(/fonts/Thasadith/Thasadith-Regular.ttf);
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Poiret One";
+  font-family: "RobotoMono-Light";
   font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/Poiret_One/PoiretOne-Regular.ttf);
+  font-weight: 100;
+  src: url(/fonts/Roboto_Mono/static/RobotoMono-Light.ttf);
   font-display: swap;
 }
 
 
 body {    
   background-color: #b5b19e; 
-  font-family: "Poiret One";
+  font-family: "Thasadith";
 }
 * {
   box-sizing: border-box;

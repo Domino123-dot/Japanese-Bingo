@@ -1,0 +1,52 @@
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  white-space: pre-line;
+
+}
+
+
+
+.title{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.desc{
+font-size: 1.6rem;
+text-align: center;
+margin-bottom: 10px;
+margin-left: 20%;
+margin-right: 20%;
+
+}
+
+.timestamp{
+  text-align: center;  
+  
+}
+
+
+
+.newDsp{
+  display: none;
+}
+
+.new{
+  color:#7ee787;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  cursor:default;
+  background-color: inherit;
+  border: 2px solid #7ee787;
+  border-radius: 100px;
+  width:15%;
+  height: 22%;
+  margin: auto;
+  text-align: center;
+
+
+}

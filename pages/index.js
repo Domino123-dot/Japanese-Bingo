@@ -4,11 +4,12 @@ import Button from "../components/button/button";
 import Layout from "../components/layout/layout";
 import Line from "../components/line";
 import { faLanguage } from "@fortawesome/free-solid-svg-icons";
-import { faComments } from "@fortawesome/free-regular-svg-icons";
+import { faComments , faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 import Icon from "../components/icon/icon";
 export default function Home() {
   return (
     <>
+    <div className={styles.changelog}><a className={styles.a} title="changelogs" href="/changelog"><Icon icon={faCircleQuestion} /></a></div>
       <Layout>
         <div className={styles.header}>
           <div className={styles.head}>Japanese kana quiz</div>
