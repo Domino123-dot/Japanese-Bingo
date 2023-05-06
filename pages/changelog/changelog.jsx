@@ -27,7 +27,7 @@ const changelog = () => {
             <div key={changelogs.ID}>
               <div className={styles.title}>{changelogs.title} </div>
               <div className={changelogs.isNew ? styles.new : styles.newDsp}>
-                new
+                New!
               </div>
               <div className={styles.desc}>{changelogs.info} </div>
                 <br/>

@@ -36,27 +36,17 @@ margin-right: 20%;
 }
 
 .new{
-
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 20px;
+  color:#7ee787;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  cursor:default;
+  background-color: inherit;
+  border: 2px solid #7ee787;
+  border-radius: 100px;
   width:15%;
   height: 22%;
   margin: auto;
   text-align: center;
-  animation: newAnim 5s linear infinite;
 
-}
 
-@keyframes newAnim{
-0%{
-background-color: green;
-}
-
-50%{
-  background-color: greenyellow;
-}
-100%{
-  background-color: green;
-}
 }
