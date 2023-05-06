@@ -35,8 +35,8 @@ const SubmitForm = () => {
             class="h-captcha"
             data-sitekey="5abc6e43-005f-4d57-84d1-290f596902d6"
             className={styles.capatcha}
-            required
-          />
+          ><h4>(Don't see hCaptcha? Just simply refresh this page)</h4> </div>
+          
           <input className={styles.button} type="submit" />
         </form>
       </div>
