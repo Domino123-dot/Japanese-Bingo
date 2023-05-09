@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../footer/footer";
 import ScrollOnTop from "../ScrollOnTop/ScrollOnTop";
 import { Helmet } from "react-helmet";
+
 export default function Layout({ children }) {
   return (
     <>
@@ -9,7 +10,6 @@ export default function Layout({ children }) {
         <meta name="theme-color" content="#b5b19e" />
         <html lang="en" />
         <title>Japanese Quiz!</title>
-        <script src="https://js.hcaptcha.com/1/api.js" async defer />
         <meta
           name="description"
           content="Test your basic kana knowlege on my website,

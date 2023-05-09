@@ -3,9 +3,11 @@ import "../style/global.css";
 
 function MyApp({ Component, pageProps }) {
   return (
+  
     <LanguageContextWrapper>
       <Component {...pageProps} />
     </LanguageContextWrapper>
+
   );
 }
 

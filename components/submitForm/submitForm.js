@@ -1,7 +1,10 @@
 import styles from "../submitForm/submitForm.module.scss";
 import Line from "../line";
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 const SubmitForm = () => {
+  
   return (
     <>
       <div className={styles.flexbox}>
@@ -31,11 +34,9 @@ const SubmitForm = () => {
             required
           />
           <Line color="#433a1f" margin="0 0 0 0" />
-          <div
-            class="h-captcha"
-            data-sitekey="5abc6e43-005f-4d57-84d1-290f596902d6"
-            className={styles.capatcha}
-          ><h4>(Don't see hCaptcha? Just simply refresh this page)</h4> </div>
+          <div><ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_SITE_KEY} />
+          (Remember to complete ReCaptcha to be sure that message will be delivered to us!)</div>
           
           <input className={styles.button} type="submit" />
         </form>
