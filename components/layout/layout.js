@@ -2,7 +2,9 @@ import React from "react";
 import Footer from "../footer/footer";
 import ScrollOnTop from "../ScrollOnTop/ScrollOnTop";
 import { Helmet } from "react-helmet";
-
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+config.autoAddCss = false;
 export default function Layout({ children }) {
   return (
     <>
