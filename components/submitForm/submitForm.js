@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 
 const SubmitForm = () => {
-  
+
   return (
     <>
       <div className={styles.flexbox}>
@@ -40,6 +40,9 @@ const SubmitForm = () => {
           
           <input className={styles.button} type="submit" />
         </form>
+
+    
+   
       </div>
     </>
   );
