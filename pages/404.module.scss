@@ -7,7 +7,8 @@
     flex-wrap: wrap;
     text-align: center;
     background: url(./background.png);
-    background-size: 100% auto;
+    background-size:100% auto;
+    background-repeat: no-repeat;
 }
 
 
@@ -25,8 +26,8 @@
     width: 100%;
 }
 .button {
-    left: -90%;
-    background-color: #433a1f;
+    background-color: #433a2d;
+    margin-bottom: 20px;
     text-decoration: none;
     border: none;
     border-radius: 10px;

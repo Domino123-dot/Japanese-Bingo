@@ -32,7 +32,7 @@ const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot }) => {
       title = "!ERROR!";
     }
   }
-
+ 
   return (
     <>
       <div className={styles.blurAppear} />
@@ -46,6 +46,7 @@ const SumbitQuiz = ({ maxPointsToGet, pointsPlayerGot }) => {
           <Button href="/" style={styles.buttonBackScore}>
             Back
           </Button>
+
         </div>
       </div>
     </>
@@ -423,7 +424,7 @@ const both = () => {
         <Layout>
           <Backbutton />
           <Header title="Practice kana">
-            In this section you can practice your kana knowlege, you can choose
+            In this section you can practice your kana knowledge, you can choose
             between japanese Hiragana, Katakana and their combinations or you
             can select all kana where you'll be able to quiz yourself from
             literally everything!
