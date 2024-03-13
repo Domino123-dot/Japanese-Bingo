@@ -11,7 +11,7 @@ const hiragana = () => {
 
 const [questions, setQuestions] = useState([]);
 const getProducts = () => {
-  axios.get("http://localhost:8000/api/questions").then((response) => {
+  axios.get("http://back-end.kanaquiz.online/api/questions").then((response) => {
     setQuestions(response.data);
   });
 };
